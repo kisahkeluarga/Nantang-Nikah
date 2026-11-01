@@ -108,6 +108,12 @@
     background: var(--putih); color: var(--hitam); font-family: sans-serif; font-weight: bold; cursor: pointer;
   }
   .pg.aktif { background: var(--kuning); }
+  .bintang { display: flex; gap: 4px; margin-top: 4px; }
+  .bintang-btn {
+    background: none; border: none; padding: 0; font-size: 30px; line-height: 1;
+    color: #fff; text-shadow: 0 0 1px #111, 0 0 1px #111; cursor: pointer;
+  }
+  .bintang-btn.on { color: var(--kuning); }
   .judul-wrap { width: fit-content; margin: 8px auto 24px; }
   .tombol-teks {
     display: block; margin: -4px 0 0 auto; padding: 0; background: none; border: none;
@@ -264,70 +270,60 @@
       <li class="tab-butir aktif">
         <div class="butir-isi">
           <p class="butir-teks">bisa menerima penolakan tanpa menyalahkan diri sendiri, dan tetap menghargai diri saat hasilnya belum sesuai harapan?</p>
-          <div class="baris-pilihan">
-            <span class="nilai-butir" data-nilai-id="syarat-1-1">0</span>
-            <div class="pilihan">
-              <label class="opsi"><input type="checkbox" data-id="syarat-1-1" value="25"><span class="label">ya, paling!</span></label>
-              <label class="opsi"><input type="checkbox" data-id="syarat-1-1" value="50"><span class="label">lumayan lah!</span></label>
-              <label class="opsi"><input type="checkbox" data-id="syarat-1-1" value="75"><span class="label">dikit lagi!</span></label>
-              <label class="opsi"><input type="checkbox" data-id="syarat-1-1" value="100"><span class="label">sudah dong!</span></label>
-            </div>
+          <div class="bintang">
+            <button type="button" class="bintang-btn" data-id="syarat-1-1" data-nilai="1" aria-label="1 bintang">&#9733;</button>
+            <button type="button" class="bintang-btn" data-id="syarat-1-1" data-nilai="2" aria-label="2 bintang">&#9733;</button>
+            <button type="button" class="bintang-btn" data-id="syarat-1-1" data-nilai="3" aria-label="3 bintang">&#9733;</button>
+            <button type="button" class="bintang-btn" data-id="syarat-1-1" data-nilai="4" aria-label="4 bintang">&#9733;</button>
+            <button type="button" class="bintang-btn" data-id="syarat-1-1" data-nilai="5" aria-label="5 bintang">&#9733;</button>
           </div>
         </div>
       </li>
       <li class="tab-butir">
         <div class="butir-isi">
           <p class="butir-teks">tidak mencari pasangan hanya untuk mengisi kesepian, melainkan ingin berbagi hidup dengan seseorang yang tepat?</p>
-          <div class="baris-pilihan">
-            <span class="nilai-butir" data-nilai-id="syarat-1-2">0</span>
-            <div class="pilihan">
-              <label class="opsi"><input type="checkbox" data-id="syarat-1-2" value="25"><span class="label">ya, paling!</span></label>
-              <label class="opsi"><input type="checkbox" data-id="syarat-1-2" value="50"><span class="label">lumayan lah!</span></label>
-              <label class="opsi"><input type="checkbox" data-id="syarat-1-2" value="75"><span class="label">dikit lagi!</span></label>
-              <label class="opsi"><input type="checkbox" data-id="syarat-1-2" value="100"><span class="label">sudah dong!</span></label>
-            </div>
+          <div class="bintang">
+            <button type="button" class="bintang-btn" data-id="syarat-1-2" data-nilai="1" aria-label="1 bintang">&#9733;</button>
+            <button type="button" class="bintang-btn" data-id="syarat-1-2" data-nilai="2" aria-label="2 bintang">&#9733;</button>
+            <button type="button" class="bintang-btn" data-id="syarat-1-2" data-nilai="3" aria-label="3 bintang">&#9733;</button>
+            <button type="button" class="bintang-btn" data-id="syarat-1-2" data-nilai="4" aria-label="4 bintang">&#9733;</button>
+            <button type="button" class="bintang-btn" data-id="syarat-1-2" data-nilai="5" aria-label="5 bintang">&#9733;</button>
           </div>
         </div>
       </li>
       <li class="tab-butir">
         <div class="butir-isi">
           <p class="butir-teks">bisa mengelola rasa kecewa dengan cara yang sehat, misalnya dengan bercerita, beristirahat, atau memberi waktu untuk diri sendiri?</p>
-          <div class="baris-pilihan">
-            <span class="nilai-butir" data-nilai-id="syarat-1-3">0</span>
-            <div class="pilihan">
-              <label class="opsi"><input type="checkbox" data-id="syarat-1-3" value="25"><span class="label">ya, paling!</span></label>
-              <label class="opsi"><input type="checkbox" data-id="syarat-1-3" value="50"><span class="label">lumayan lah!</span></label>
-              <label class="opsi"><input type="checkbox" data-id="syarat-1-3" value="75"><span class="label">dikit lagi!</span></label>
-              <label class="opsi"><input type="checkbox" data-id="syarat-1-3" value="100"><span class="label">sudah dong!</span></label>
-            </div>
+          <div class="bintang">
+            <button type="button" class="bintang-btn" data-id="syarat-1-3" data-nilai="1" aria-label="1 bintang">&#9733;</button>
+            <button type="button" class="bintang-btn" data-id="syarat-1-3" data-nilai="2" aria-label="2 bintang">&#9733;</button>
+            <button type="button" class="bintang-btn" data-id="syarat-1-3" data-nilai="3" aria-label="3 bintang">&#9733;</button>
+            <button type="button" class="bintang-btn" data-id="syarat-1-3" data-nilai="4" aria-label="4 bintang">&#9733;</button>
+            <button type="button" class="bintang-btn" data-id="syarat-1-3" data-nilai="5" aria-label="5 bintang">&#9733;</button>
           </div>
         </div>
       </li>
       <li class="tab-butir">
         <div class="butir-isi">
           <p class="butir-teks">tahu alasan pribadi yang jelas mengapa ingin menjalin hubungan, dan alasan itu sudah direnungkan dengan jujur?</p>
-          <div class="baris-pilihan">
-            <span class="nilai-butir" data-nilai-id="syarat-1-4">0</span>
-            <div class="pilihan">
-              <label class="opsi"><input type="checkbox" data-id="syarat-1-4" value="25"><span class="label">ya, paling!</span></label>
-              <label class="opsi"><input type="checkbox" data-id="syarat-1-4" value="50"><span class="label">lumayan lah!</span></label>
-              <label class="opsi"><input type="checkbox" data-id="syarat-1-4" value="75"><span class="label">dikit lagi!</span></label>
-              <label class="opsi"><input type="checkbox" data-id="syarat-1-4" value="100"><span class="label">sudah dong!</span></label>
-            </div>
+          <div class="bintang">
+            <button type="button" class="bintang-btn" data-id="syarat-1-4" data-nilai="1" aria-label="1 bintang">&#9733;</button>
+            <button type="button" class="bintang-btn" data-id="syarat-1-4" data-nilai="2" aria-label="2 bintang">&#9733;</button>
+            <button type="button" class="bintang-btn" data-id="syarat-1-4" data-nilai="3" aria-label="3 bintang">&#9733;</button>
+            <button type="button" class="bintang-btn" data-id="syarat-1-4" data-nilai="4" aria-label="4 bintang">&#9733;</button>
+            <button type="button" class="bintang-btn" data-id="syarat-1-4" data-nilai="5" aria-label="5 bintang">&#9733;</button>
           </div>
         </div>
       </li>
       <li class="tab-butir">
         <div class="butir-isi">
           <p class="butir-teks">merasa utuh meskipun belum memiliki pasangan, sehingga hubungan menjadi tambahan, bukan sumber kebahagiaan utama?</p>
-          <div class="baris-pilihan">
-            <span class="nilai-butir" data-nilai-id="syarat-1-5">0</span>
-            <div class="pilihan">
-              <label class="opsi"><input type="checkbox" data-id="syarat-1-5" value="25"><span class="label">ya, paling!</span></label>
-              <label class="opsi"><input type="checkbox" data-id="syarat-1-5" value="50"><span class="label">lumayan lah!</span></label>
-              <label class="opsi"><input type="checkbox" data-id="syarat-1-5" value="75"><span class="label">dikit lagi!</span></label>
-              <label class="opsi"><input type="checkbox" data-id="syarat-1-5" value="100"><span class="label">sudah dong!</span></label>
-            </div>
+          <div class="bintang">
+            <button type="button" class="bintang-btn" data-id="syarat-1-5" data-nilai="1" aria-label="1 bintang">&#9733;</button>
+            <button type="button" class="bintang-btn" data-id="syarat-1-5" data-nilai="2" aria-label="2 bintang">&#9733;</button>
+            <button type="button" class="bintang-btn" data-id="syarat-1-5" data-nilai="3" aria-label="3 bintang">&#9733;</button>
+            <button type="button" class="bintang-btn" data-id="syarat-1-5" data-nilai="4" aria-label="4 bintang">&#9733;</button>
+            <button type="button" class="bintang-btn" data-id="syarat-1-5" data-nilai="5" aria-label="5 bintang">&#9733;</button>
           </div>
         </div>
       </li>
@@ -359,70 +355,60 @@
       <li class="tab-butir aktif">
         <div class="butir-isi">
           <p class="butir-teks">memiliki penghasilan yang cukup untuk hidup mandiri, tanpa terus bergantung pada bantuan orang lain?</p>
-          <div class="baris-pilihan">
-            <span class="nilai-butir" data-nilai-id="syarat-2-1">0</span>
-            <div class="pilihan">
-              <label class="opsi"><input type="checkbox" data-id="syarat-2-1" value="25"><span class="label">ya, paling!</span></label>
-              <label class="opsi"><input type="checkbox" data-id="syarat-2-1" value="50"><span class="label">lumayan lah!</span></label>
-              <label class="opsi"><input type="checkbox" data-id="syarat-2-1" value="75"><span class="label">dikit lagi!</span></label>
-              <label class="opsi"><input type="checkbox" data-id="syarat-2-1" value="100"><span class="label">sudah dong!</span></label>
-            </div>
+          <div class="bintang">
+            <button type="button" class="bintang-btn" data-id="syarat-2-1" data-nilai="1" aria-label="1 bintang">&#9733;</button>
+            <button type="button" class="bintang-btn" data-id="syarat-2-1" data-nilai="2" aria-label="2 bintang">&#9733;</button>
+            <button type="button" class="bintang-btn" data-id="syarat-2-1" data-nilai="3" aria-label="3 bintang">&#9733;</button>
+            <button type="button" class="bintang-btn" data-id="syarat-2-1" data-nilai="4" aria-label="4 bintang">&#9733;</button>
+            <button type="button" class="bintang-btn" data-id="syarat-2-1" data-nilai="5" aria-label="5 bintang">&#9733;</button>
           </div>
         </div>
       </li>
       <li class="tab-butir">
         <div class="butir-isi">
           <p class="butir-teks">mencatat pengeluaran dan memiliki tabungan dasar, sebagai bekal menghadapi kebutuhan yang tidak terduga?</p>
-          <div class="baris-pilihan">
-            <span class="nilai-butir" data-nilai-id="syarat-2-2">0</span>
-            <div class="pilihan">
-              <label class="opsi"><input type="checkbox" data-id="syarat-2-2" value="25"><span class="label">ya, paling!</span></label>
-              <label class="opsi"><input type="checkbox" data-id="syarat-2-2" value="50"><span class="label">lumayan lah!</span></label>
-              <label class="opsi"><input type="checkbox" data-id="syarat-2-2" value="75"><span class="label">dikit lagi!</span></label>
-              <label class="opsi"><input type="checkbox" data-id="syarat-2-2" value="100"><span class="label">sudah dong!</span></label>
-            </div>
+          <div class="bintang">
+            <button type="button" class="bintang-btn" data-id="syarat-2-2" data-nilai="1" aria-label="1 bintang">&#9733;</button>
+            <button type="button" class="bintang-btn" data-id="syarat-2-2" data-nilai="2" aria-label="2 bintang">&#9733;</button>
+            <button type="button" class="bintang-btn" data-id="syarat-2-2" data-nilai="3" aria-label="3 bintang">&#9733;</button>
+            <button type="button" class="bintang-btn" data-id="syarat-2-2" data-nilai="4" aria-label="4 bintang">&#9733;</button>
+            <button type="button" class="bintang-btn" data-id="syarat-2-2" data-nilai="5" aria-label="5 bintang">&#9733;</button>
           </div>
         </div>
       </li>
       <li class="tab-butir">
         <div class="butir-isi">
           <p class="butir-teks">menepati janji dan menyelesaikan kewajiban sendiri tanpa harus selalu diingatkan oleh orang lain?</p>
-          <div class="baris-pilihan">
-            <span class="nilai-butir" data-nilai-id="syarat-2-3">0</span>
-            <div class="pilihan">
-              <label class="opsi"><input type="checkbox" data-id="syarat-2-3" value="25"><span class="label">ya, paling!</span></label>
-              <label class="opsi"><input type="checkbox" data-id="syarat-2-3" value="50"><span class="label">lumayan lah!</span></label>
-              <label class="opsi"><input type="checkbox" data-id="syarat-2-3" value="75"><span class="label">dikit lagi!</span></label>
-              <label class="opsi"><input type="checkbox" data-id="syarat-2-3" value="100"><span class="label">sudah dong!</span></label>
-            </div>
+          <div class="bintang">
+            <button type="button" class="bintang-btn" data-id="syarat-2-3" data-nilai="1" aria-label="1 bintang">&#9733;</button>
+            <button type="button" class="bintang-btn" data-id="syarat-2-3" data-nilai="2" aria-label="2 bintang">&#9733;</button>
+            <button type="button" class="bintang-btn" data-id="syarat-2-3" data-nilai="3" aria-label="3 bintang">&#9733;</button>
+            <button type="button" class="bintang-btn" data-id="syarat-2-3" data-nilai="4" aria-label="4 bintang">&#9733;</button>
+            <button type="button" class="bintang-btn" data-id="syarat-2-3" data-nilai="5" aria-label="5 bintang">&#9733;</button>
           </div>
         </div>
       </li>
       <li class="tab-butir">
         <div class="butir-isi">
           <p class="butir-teks">memahami kewajiban finansial yang akan ditanggung, termasuk cicilan, tagihan, dan kebutuhan rumah tangga?</p>
-          <div class="baris-pilihan">
-            <span class="nilai-butir" data-nilai-id="syarat-2-4">0</span>
-            <div class="pilihan">
-              <label class="opsi"><input type="checkbox" data-id="syarat-2-4" value="25"><span class="label">ya, paling!</span></label>
-              <label class="opsi"><input type="checkbox" data-id="syarat-2-4" value="50"><span class="label">lumayan lah!</span></label>
-              <label class="opsi"><input type="checkbox" data-id="syarat-2-4" value="75"><span class="label">dikit lagi!</span></label>
-              <label class="opsi"><input type="checkbox" data-id="syarat-2-4" value="100"><span class="label">sudah dong!</span></label>
-            </div>
+          <div class="bintang">
+            <button type="button" class="bintang-btn" data-id="syarat-2-4" data-nilai="1" aria-label="1 bintang">&#9733;</button>
+            <button type="button" class="bintang-btn" data-id="syarat-2-4" data-nilai="2" aria-label="2 bintang">&#9733;</button>
+            <button type="button" class="bintang-btn" data-id="syarat-2-4" data-nilai="3" aria-label="3 bintang">&#9733;</button>
+            <button type="button" class="bintang-btn" data-id="syarat-2-4" data-nilai="4" aria-label="4 bintang">&#9733;</button>
+            <button type="button" class="bintang-btn" data-id="syarat-2-4" data-nilai="5" aria-label="5 bintang">&#9733;</button>
           </div>
         </div>
       </li>
       <li class="tab-butir">
         <div class="butir-isi">
           <p class="butir-teks">siap membicarakan keuangan secara terbuka dengan calon, termasuk tentang utang, tabungan, dan rencana bersama?</p>
-          <div class="baris-pilihan">
-            <span class="nilai-butir" data-nilai-id="syarat-2-5">0</span>
-            <div class="pilihan">
-              <label class="opsi"><input type="checkbox" data-id="syarat-2-5" value="25"><span class="label">ya, paling!</span></label>
-              <label class="opsi"><input type="checkbox" data-id="syarat-2-5" value="50"><span class="label">lumayan lah!</span></label>
-              <label class="opsi"><input type="checkbox" data-id="syarat-2-5" value="75"><span class="label">dikit lagi!</span></label>
-              <label class="opsi"><input type="checkbox" data-id="syarat-2-5" value="100"><span class="label">sudah dong!</span></label>
-            </div>
+          <div class="bintang">
+            <button type="button" class="bintang-btn" data-id="syarat-2-5" data-nilai="1" aria-label="1 bintang">&#9733;</button>
+            <button type="button" class="bintang-btn" data-id="syarat-2-5" data-nilai="2" aria-label="2 bintang">&#9733;</button>
+            <button type="button" class="bintang-btn" data-id="syarat-2-5" data-nilai="3" aria-label="3 bintang">&#9733;</button>
+            <button type="button" class="bintang-btn" data-id="syarat-2-5" data-nilai="4" aria-label="4 bintang">&#9733;</button>
+            <button type="button" class="bintang-btn" data-id="syarat-2-5" data-nilai="5" aria-label="5 bintang">&#9733;</button>
           </div>
         </div>
       </li>
@@ -454,70 +440,60 @@
       <li class="tab-butir aktif">
         <div class="butir-isi">
           <p class="butir-teks">sudah membicarakan rencana hidup dengan calon, seperti tempat tinggal, karier, dan target di masa depan?</p>
-          <div class="baris-pilihan">
-            <span class="nilai-butir" data-nilai-id="siasat-1-1">0</span>
-            <div class="pilihan">
-              <label class="opsi"><input type="checkbox" data-id="siasat-1-1" value="25"><span class="label">ya, paling!</span></label>
-              <label class="opsi"><input type="checkbox" data-id="siasat-1-1" value="50"><span class="label">lumayan lah!</span></label>
-              <label class="opsi"><input type="checkbox" data-id="siasat-1-1" value="75"><span class="label">dikit lagi!</span></label>
-              <label class="opsi"><input type="checkbox" data-id="siasat-1-1" value="100"><span class="label">sudah dong!</span></label>
-            </div>
+          <div class="bintang">
+            <button type="button" class="bintang-btn" data-id="siasat-1-1" data-nilai="1" aria-label="1 bintang">&#9733;</button>
+            <button type="button" class="bintang-btn" data-id="siasat-1-1" data-nilai="2" aria-label="2 bintang">&#9733;</button>
+            <button type="button" class="bintang-btn" data-id="siasat-1-1" data-nilai="3" aria-label="3 bintang">&#9733;</button>
+            <button type="button" class="bintang-btn" data-id="siasat-1-1" data-nilai="4" aria-label="4 bintang">&#9733;</button>
+            <button type="button" class="bintang-btn" data-id="siasat-1-1" data-nilai="5" aria-label="5 bintang">&#9733;</button>
           </div>
         </div>
       </li>
       <li class="tab-butir">
         <div class="butir-isi">
           <p class="butir-teks">tahu pandangan calon tentang keluarga, peran orang tua, dan hubungannya dengan saudara-saudaranya?</p>
-          <div class="baris-pilihan">
-            <span class="nilai-butir" data-nilai-id="siasat-1-2">0</span>
-            <div class="pilihan">
-              <label class="opsi"><input type="checkbox" data-id="siasat-1-2" value="25"><span class="label">ya, paling!</span></label>
-              <label class="opsi"><input type="checkbox" data-id="siasat-1-2" value="50"><span class="label">lumayan lah!</span></label>
-              <label class="opsi"><input type="checkbox" data-id="siasat-1-2" value="75"><span class="label">dikit lagi!</span></label>
-              <label class="opsi"><input type="checkbox" data-id="siasat-1-2" value="100"><span class="label">sudah dong!</span></label>
-            </div>
+          <div class="bintang">
+            <button type="button" class="bintang-btn" data-id="siasat-1-2" data-nilai="1" aria-label="1 bintang">&#9733;</button>
+            <button type="button" class="bintang-btn" data-id="siasat-1-2" data-nilai="2" aria-label="2 bintang">&#9733;</button>
+            <button type="button" class="bintang-btn" data-id="siasat-1-2" data-nilai="3" aria-label="3 bintang">&#9733;</button>
+            <button type="button" class="bintang-btn" data-id="siasat-1-2" data-nilai="4" aria-label="4 bintang">&#9733;</button>
+            <button type="button" class="bintang-btn" data-id="siasat-1-2" data-nilai="5" aria-label="5 bintang">&#9733;</button>
           </div>
         </div>
       </li>
       <li class="tab-butir">
         <div class="butir-isi">
           <p class="butir-teks">pernah melihat cara calon menyelesaikan konflik, bukan hanya saat keadaan sedang tenang?</p>
-          <div class="baris-pilihan">
-            <span class="nilai-butir" data-nilai-id="siasat-1-3">0</span>
-            <div class="pilihan">
-              <label class="opsi"><input type="checkbox" data-id="siasat-1-3" value="25"><span class="label">ya, paling!</span></label>
-              <label class="opsi"><input type="checkbox" data-id="siasat-1-3" value="50"><span class="label">lumayan lah!</span></label>
-              <label class="opsi"><input type="checkbox" data-id="siasat-1-3" value="75"><span class="label">dikit lagi!</span></label>
-              <label class="opsi"><input type="checkbox" data-id="siasat-1-3" value="100"><span class="label">sudah dong!</span></label>
-            </div>
+          <div class="bintang">
+            <button type="button" class="bintang-btn" data-id="siasat-1-3" data-nilai="1" aria-label="1 bintang">&#9733;</button>
+            <button type="button" class="bintang-btn" data-id="siasat-1-3" data-nilai="2" aria-label="2 bintang">&#9733;</button>
+            <button type="button" class="bintang-btn" data-id="siasat-1-3" data-nilai="3" aria-label="3 bintang">&#9733;</button>
+            <button type="button" class="bintang-btn" data-id="siasat-1-3" data-nilai="4" aria-label="4 bintang">&#9733;</button>
+            <button type="button" class="bintang-btn" data-id="siasat-1-3" data-nilai="5" aria-label="5 bintang">&#9733;</button>
           </div>
         </div>
       </li>
       <li class="tab-butir">
         <div class="butir-isi">
           <p class="butir-teks">sudah mengenal kebiasaan sehari-hari calon, mulai dari cara ia memulai hari hingga cara ia mengisi waktu luang?</p>
-          <div class="baris-pilihan">
-            <span class="nilai-butir" data-nilai-id="siasat-1-4">0</span>
-            <div class="pilihan">
-              <label class="opsi"><input type="checkbox" data-id="siasat-1-4" value="25"><span class="label">ya, paling!</span></label>
-              <label class="opsi"><input type="checkbox" data-id="siasat-1-4" value="50"><span class="label">lumayan lah!</span></label>
-              <label class="opsi"><input type="checkbox" data-id="siasat-1-4" value="75"><span class="label">dikit lagi!</span></label>
-              <label class="opsi"><input type="checkbox" data-id="siasat-1-4" value="100"><span class="label">sudah dong!</span></label>
-            </div>
+          <div class="bintang">
+            <button type="button" class="bintang-btn" data-id="siasat-1-4" data-nilai="1" aria-label="1 bintang">&#9733;</button>
+            <button type="button" class="bintang-btn" data-id="siasat-1-4" data-nilai="2" aria-label="2 bintang">&#9733;</button>
+            <button type="button" class="bintang-btn" data-id="siasat-1-4" data-nilai="3" aria-label="3 bintang">&#9733;</button>
+            <button type="button" class="bintang-btn" data-id="siasat-1-4" data-nilai="4" aria-label="4 bintang">&#9733;</button>
+            <button type="button" class="bintang-btn" data-id="siasat-1-4" data-nilai="5" aria-label="5 bintang">&#9733;</button>
           </div>
         </div>
       </li>
       <li class="tab-butir">
         <div class="butir-isi">
           <p class="butir-teks">tidak terburu-buru menilai calon hanya dari penampilan, dan memberi waktu untuk mengenal karakternya lebih dalam?</p>
-          <div class="baris-pilihan">
-            <span class="nilai-butir" data-nilai-id="siasat-1-5">0</span>
-            <div class="pilihan">
-              <label class="opsi"><input type="checkbox" data-id="siasat-1-5" value="25"><span class="label">ya, paling!</span></label>
-              <label class="opsi"><input type="checkbox" data-id="siasat-1-5" value="50"><span class="label">lumayan lah!</span></label>
-              <label class="opsi"><input type="checkbox" data-id="siasat-1-5" value="75"><span class="label">dikit lagi!</span></label>
-              <label class="opsi"><input type="checkbox" data-id="siasat-1-5" value="100"><span class="label">sudah dong!</span></label>
-            </div>
+          <div class="bintang">
+            <button type="button" class="bintang-btn" data-id="siasat-1-5" data-nilai="1" aria-label="1 bintang">&#9733;</button>
+            <button type="button" class="bintang-btn" data-id="siasat-1-5" data-nilai="2" aria-label="2 bintang">&#9733;</button>
+            <button type="button" class="bintang-btn" data-id="siasat-1-5" data-nilai="3" aria-label="3 bintang">&#9733;</button>
+            <button type="button" class="bintang-btn" data-id="siasat-1-5" data-nilai="4" aria-label="4 bintang">&#9733;</button>
+            <button type="button" class="bintang-btn" data-id="siasat-1-5" data-nilai="5" aria-label="5 bintang">&#9733;</button>
           </div>
         </div>
       </li>
@@ -549,70 +525,60 @@
       <li class="tab-butir aktif">
         <div class="butir-isi">
           <p class="butir-teks">sudah memberi tahu keluarga tentang niat saya dengan cara yang sopan dan terbuka?</p>
-          <div class="baris-pilihan">
-            <span class="nilai-butir" data-nilai-id="siasat-2-1">0</span>
-            <div class="pilihan">
-              <label class="opsi"><input type="checkbox" data-id="siasat-2-1" value="25"><span class="label">ya, paling!</span></label>
-              <label class="opsi"><input type="checkbox" data-id="siasat-2-1" value="50"><span class="label">lumayan lah!</span></label>
-              <label class="opsi"><input type="checkbox" data-id="siasat-2-1" value="75"><span class="label">dikit lagi!</span></label>
-              <label class="opsi"><input type="checkbox" data-id="siasat-2-1" value="100"><span class="label">sudah dong!</span></label>
-            </div>
+          <div class="bintang">
+            <button type="button" class="bintang-btn" data-id="siasat-2-1" data-nilai="1" aria-label="1 bintang">&#9733;</button>
+            <button type="button" class="bintang-btn" data-id="siasat-2-1" data-nilai="2" aria-label="2 bintang">&#9733;</button>
+            <button type="button" class="bintang-btn" data-id="siasat-2-1" data-nilai="3" aria-label="3 bintang">&#9733;</button>
+            <button type="button" class="bintang-btn" data-id="siasat-2-1" data-nilai="4" aria-label="4 bintang">&#9733;</button>
+            <button type="button" class="bintang-btn" data-id="siasat-2-1" data-nilai="5" aria-label="5 bintang">&#9733;</button>
           </div>
         </div>
       </li>
       <li class="tab-butir">
         <div class="butir-isi">
           <p class="butir-teks">sudah melibatkan orang yang saya percaya dalam proses ini, sebagai pendamping yang bisa memberi pertimbangan?</p>
-          <div class="baris-pilihan">
-            <span class="nilai-butir" data-nilai-id="siasat-2-2">0</span>
-            <div class="pilihan">
-              <label class="opsi"><input type="checkbox" data-id="siasat-2-2" value="25"><span class="label">ya, paling!</span></label>
-              <label class="opsi"><input type="checkbox" data-id="siasat-2-2" value="50"><span class="label">lumayan lah!</span></label>
-              <label class="opsi"><input type="checkbox" data-id="siasat-2-2" value="75"><span class="label">dikit lagi!</span></label>
-              <label class="opsi"><input type="checkbox" data-id="siasat-2-2" value="100"><span class="label">sudah dong!</span></label>
-            </div>
+          <div class="bintang">
+            <button type="button" class="bintang-btn" data-id="siasat-2-2" data-nilai="1" aria-label="1 bintang">&#9733;</button>
+            <button type="button" class="bintang-btn" data-id="siasat-2-2" data-nilai="2" aria-label="2 bintang">&#9733;</button>
+            <button type="button" class="bintang-btn" data-id="siasat-2-2" data-nilai="3" aria-label="3 bintang">&#9733;</button>
+            <button type="button" class="bintang-btn" data-id="siasat-2-2" data-nilai="4" aria-label="4 bintang">&#9733;</button>
+            <button type="button" class="bintang-btn" data-id="siasat-2-2" data-nilai="5" aria-label="5 bintang">&#9733;</button>
           </div>
         </div>
       </li>
       <li class="tab-butir">
         <div class="butir-isi">
           <p class="butir-teks">bisa mendengarkan masukan tanpa merasa tersinggung, lalu menimbangnya dengan kepala dingin?</p>
-          <div class="baris-pilihan">
-            <span class="nilai-butir" data-nilai-id="siasat-2-3">0</span>
-            <div class="pilihan">
-              <label class="opsi"><input type="checkbox" data-id="siasat-2-3" value="25"><span class="label">ya, paling!</span></label>
-              <label class="opsi"><input type="checkbox" data-id="siasat-2-3" value="50"><span class="label">lumayan lah!</span></label>
-              <label class="opsi"><input type="checkbox" data-id="siasat-2-3" value="75"><span class="label">dikit lagi!</span></label>
-              <label class="opsi"><input type="checkbox" data-id="siasat-2-3" value="100"><span class="label">sudah dong!</span></label>
-            </div>
+          <div class="bintang">
+            <button type="button" class="bintang-btn" data-id="siasat-2-3" data-nilai="1" aria-label="1 bintang">&#9733;</button>
+            <button type="button" class="bintang-btn" data-id="siasat-2-3" data-nilai="2" aria-label="2 bintang">&#9733;</button>
+            <button type="button" class="bintang-btn" data-id="siasat-2-3" data-nilai="3" aria-label="3 bintang">&#9733;</button>
+            <button type="button" class="bintang-btn" data-id="siasat-2-3" data-nilai="4" aria-label="4 bintang">&#9733;</button>
+            <button type="button" class="bintang-btn" data-id="siasat-2-3" data-nilai="5" aria-label="5 bintang">&#9733;</button>
           </div>
         </div>
       </li>
       <li class="tab-butir">
         <div class="butir-isi">
           <p class="butir-teks">sudah menjelaskan tujuan hubungan kepada calon, sehingga kami berjalan dengan arah yang sama?</p>
-          <div class="baris-pilihan">
-            <span class="nilai-butir" data-nilai-id="siasat-2-4">0</span>
-            <div class="pilihan">
-              <label class="opsi"><input type="checkbox" data-id="siasat-2-4" value="25"><span class="label">ya, paling!</span></label>
-              <label class="opsi"><input type="checkbox" data-id="siasat-2-4" value="50"><span class="label">lumayan lah!</span></label>
-              <label class="opsi"><input type="checkbox" data-id="siasat-2-4" value="75"><span class="label">dikit lagi!</span></label>
-              <label class="opsi"><input type="checkbox" data-id="siasat-2-4" value="100"><span class="label">sudah dong!</span></label>
-            </div>
+          <div class="bintang">
+            <button type="button" class="bintang-btn" data-id="siasat-2-4" data-nilai="1" aria-label="1 bintang">&#9733;</button>
+            <button type="button" class="bintang-btn" data-id="siasat-2-4" data-nilai="2" aria-label="2 bintang">&#9733;</button>
+            <button type="button" class="bintang-btn" data-id="siasat-2-4" data-nilai="3" aria-label="3 bintang">&#9733;</button>
+            <button type="button" class="bintang-btn" data-id="siasat-2-4" data-nilai="4" aria-label="4 bintang">&#9733;</button>
+            <button type="button" class="bintang-btn" data-id="siasat-2-4" data-nilai="5" aria-label="5 bintang">&#9733;</button>
           </div>
         </div>
       </li>
       <li class="tab-butir">
         <div class="butir-isi">
           <p class="butir-teks">tidak mengambil keputusan besar sendirian, dan selalu membicarakannya bersama orang-orang yang dipercaya?</p>
-          <div class="baris-pilihan">
-            <span class="nilai-butir" data-nilai-id="siasat-2-5">0</span>
-            <div class="pilihan">
-              <label class="opsi"><input type="checkbox" data-id="siasat-2-5" value="25"><span class="label">ya, paling!</span></label>
-              <label class="opsi"><input type="checkbox" data-id="siasat-2-5" value="50"><span class="label">lumayan lah!</span></label>
-              <label class="opsi"><input type="checkbox" data-id="siasat-2-5" value="75"><span class="label">dikit lagi!</span></label>
-              <label class="opsi"><input type="checkbox" data-id="siasat-2-5" value="100"><span class="label">sudah dong!</span></label>
-            </div>
+          <div class="bintang">
+            <button type="button" class="bintang-btn" data-id="siasat-2-5" data-nilai="1" aria-label="1 bintang">&#9733;</button>
+            <button type="button" class="bintang-btn" data-id="siasat-2-5" data-nilai="2" aria-label="2 bintang">&#9733;</button>
+            <button type="button" class="bintang-btn" data-id="siasat-2-5" data-nilai="3" aria-label="3 bintang">&#9733;</button>
+            <button type="button" class="bintang-btn" data-id="siasat-2-5" data-nilai="4" aria-label="4 bintang">&#9733;</button>
+            <button type="button" class="bintang-btn" data-id="siasat-2-5" data-nilai="5" aria-label="5 bintang">&#9733;</button>
           </div>
         </div>
       </li>
@@ -644,70 +610,60 @@
       <li class="tab-butir aktif">
         <div class="butir-isi">
           <p class="butir-teks">mengenal kekuatan dan kelemahan diri dengan jujur, serta tahu bagian mana yang masih perlu diperbaiki?</p>
-          <div class="baris-pilihan">
-            <span class="nilai-butir" data-nilai-id="skala-1-1">0</span>
-            <div class="pilihan">
-              <label class="opsi"><input type="checkbox" data-id="skala-1-1" value="25"><span class="label">ya, paling!</span></label>
-              <label class="opsi"><input type="checkbox" data-id="skala-1-1" value="50"><span class="label">lumayan lah!</span></label>
-              <label class="opsi"><input type="checkbox" data-id="skala-1-1" value="75"><span class="label">dikit lagi!</span></label>
-              <label class="opsi"><input type="checkbox" data-id="skala-1-1" value="100"><span class="label">sudah dong!</span></label>
-            </div>
+          <div class="bintang">
+            <button type="button" class="bintang-btn" data-id="skala-1-1" data-nilai="1" aria-label="1 bintang">&#9733;</button>
+            <button type="button" class="bintang-btn" data-id="skala-1-1" data-nilai="2" aria-label="2 bintang">&#9733;</button>
+            <button type="button" class="bintang-btn" data-id="skala-1-1" data-nilai="3" aria-label="3 bintang">&#9733;</button>
+            <button type="button" class="bintang-btn" data-id="skala-1-1" data-nilai="4" aria-label="4 bintang">&#9733;</button>
+            <button type="button" class="bintang-btn" data-id="skala-1-1" data-nilai="5" aria-label="5 bintang">&#9733;</button>
           </div>
         </div>
       </li>
       <li class="tab-butir">
         <div class="butir-isi">
           <p class="butir-teks">bisa mengatur waktu dan kebutuhan pribadi dengan seimbang, tanpa mengorbankan kesehatan dan tanggung jawab?</p>
-          <div class="baris-pilihan">
-            <span class="nilai-butir" data-nilai-id="skala-1-2">0</span>
-            <div class="pilihan">
-              <label class="opsi"><input type="checkbox" data-id="skala-1-2" value="25"><span class="label">ya, paling!</span></label>
-              <label class="opsi"><input type="checkbox" data-id="skala-1-2" value="50"><span class="label">lumayan lah!</span></label>
-              <label class="opsi"><input type="checkbox" data-id="skala-1-2" value="75"><span class="label">dikit lagi!</span></label>
-              <label class="opsi"><input type="checkbox" data-id="skala-1-2" value="100"><span class="label">sudah dong!</span></label>
-            </div>
+          <div class="bintang">
+            <button type="button" class="bintang-btn" data-id="skala-1-2" data-nilai="1" aria-label="1 bintang">&#9733;</button>
+            <button type="button" class="bintang-btn" data-id="skala-1-2" data-nilai="2" aria-label="2 bintang">&#9733;</button>
+            <button type="button" class="bintang-btn" data-id="skala-1-2" data-nilai="3" aria-label="3 bintang">&#9733;</button>
+            <button type="button" class="bintang-btn" data-id="skala-1-2" data-nilai="4" aria-label="4 bintang">&#9733;</button>
+            <button type="button" class="bintang-btn" data-id="skala-1-2" data-nilai="5" aria-label="5 bintang">&#9733;</button>
           </div>
         </div>
       </li>
       <li class="tab-butir">
         <div class="butir-isi">
           <p class="butir-teks">memiliki target hidup yang jelas untuk lima tahun ke depan, baik di bidang pekerjaan, pendidikan, maupun keluarga?</p>
-          <div class="baris-pilihan">
-            <span class="nilai-butir" data-nilai-id="skala-1-3">0</span>
-            <div class="pilihan">
-              <label class="opsi"><input type="checkbox" data-id="skala-1-3" value="25"><span class="label">ya, paling!</span></label>
-              <label class="opsi"><input type="checkbox" data-id="skala-1-3" value="50"><span class="label">lumayan lah!</span></label>
-              <label class="opsi"><input type="checkbox" data-id="skala-1-3" value="75"><span class="label">dikit lagi!</span></label>
-              <label class="opsi"><input type="checkbox" data-id="skala-1-3" value="100"><span class="label">sudah dong!</span></label>
-            </div>
+          <div class="bintang">
+            <button type="button" class="bintang-btn" data-id="skala-1-3" data-nilai="1" aria-label="1 bintang">&#9733;</button>
+            <button type="button" class="bintang-btn" data-id="skala-1-3" data-nilai="2" aria-label="2 bintang">&#9733;</button>
+            <button type="button" class="bintang-btn" data-id="skala-1-3" data-nilai="3" aria-label="3 bintang">&#9733;</button>
+            <button type="button" class="bintang-btn" data-id="skala-1-3" data-nilai="4" aria-label="4 bintang">&#9733;</button>
+            <button type="button" class="bintang-btn" data-id="skala-1-3" data-nilai="5" aria-label="5 bintang">&#9733;</button>
           </div>
         </div>
       </li>
       <li class="tab-butir">
         <div class="butir-isi">
           <p class="butir-teks">siap berubah jika ada hal yang perlu diperbaiki, dan tidak merasa rendah diri saat menerima masukan?</p>
-          <div class="baris-pilihan">
-            <span class="nilai-butir" data-nilai-id="skala-1-4">0</span>
-            <div class="pilihan">
-              <label class="opsi"><input type="checkbox" data-id="skala-1-4" value="25"><span class="label">ya, paling!</span></label>
-              <label class="opsi"><input type="checkbox" data-id="skala-1-4" value="50"><span class="label">lumayan lah!</span></label>
-              <label class="opsi"><input type="checkbox" data-id="skala-1-4" value="75"><span class="label">dikit lagi!</span></label>
-              <label class="opsi"><input type="checkbox" data-id="skala-1-4" value="100"><span class="label">sudah dong!</span></label>
-            </div>
+          <div class="bintang">
+            <button type="button" class="bintang-btn" data-id="skala-1-4" data-nilai="1" aria-label="1 bintang">&#9733;</button>
+            <button type="button" class="bintang-btn" data-id="skala-1-4" data-nilai="2" aria-label="2 bintang">&#9733;</button>
+            <button type="button" class="bintang-btn" data-id="skala-1-4" data-nilai="3" aria-label="3 bintang">&#9733;</button>
+            <button type="button" class="bintang-btn" data-id="skala-1-4" data-nilai="4" aria-label="4 bintang">&#9733;</button>
+            <button type="button" class="bintang-btn" data-id="skala-1-4" data-nilai="5" aria-label="5 bintang">&#9733;</button>
           </div>
         </div>
       </li>
       <li class="tab-butir">
         <div class="butir-isi">
           <p class="butir-teks">tetap sehat secara mental tanpa bergantung pada pasangan untuk merasa aman, dihargai, atau bahagia?</p>
-          <div class="baris-pilihan">
-            <span class="nilai-butir" data-nilai-id="skala-1-5">0</span>
-            <div class="pilihan">
-              <label class="opsi"><input type="checkbox" data-id="skala-1-5" value="25"><span class="label">ya, paling!</span></label>
-              <label class="opsi"><input type="checkbox" data-id="skala-1-5" value="50"><span class="label">lumayan lah!</span></label>
-              <label class="opsi"><input type="checkbox" data-id="skala-1-5" value="75"><span class="label">dikit lagi!</span></label>
-              <label class="opsi"><input type="checkbox" data-id="skala-1-5" value="100"><span class="label">sudah dong!</span></label>
-            </div>
+          <div class="bintang">
+            <button type="button" class="bintang-btn" data-id="skala-1-5" data-nilai="1" aria-label="1 bintang">&#9733;</button>
+            <button type="button" class="bintang-btn" data-id="skala-1-5" data-nilai="2" aria-label="2 bintang">&#9733;</button>
+            <button type="button" class="bintang-btn" data-id="skala-1-5" data-nilai="3" aria-label="3 bintang">&#9733;</button>
+            <button type="button" class="bintang-btn" data-id="skala-1-5" data-nilai="4" aria-label="4 bintang">&#9733;</button>
+            <button type="button" class="bintang-btn" data-id="skala-1-5" data-nilai="5" aria-label="5 bintang">&#9733;</button>
           </div>
         </div>
       </li>
@@ -739,70 +695,60 @@
       <li class="tab-butir aktif">
         <div class="butir-isi">
           <p class="butir-teks">sudah sepakat tentang batas fisik dan waktu bersama, sehingga kedua pihak merasa dihargai dalam hubungan ini?</p>
-          <div class="baris-pilihan">
-            <span class="nilai-butir" data-nilai-id="skala-2-1">0</span>
-            <div class="pilihan">
-              <label class="opsi"><input type="checkbox" data-id="skala-2-1" value="25"><span class="label">ya, paling!</span></label>
-              <label class="opsi"><input type="checkbox" data-id="skala-2-1" value="50"><span class="label">lumayan lah!</span></label>
-              <label class="opsi"><input type="checkbox" data-id="skala-2-1" value="75"><span class="label">dikit lagi!</span></label>
-              <label class="opsi"><input type="checkbox" data-id="skala-2-1" value="100"><span class="label">sudah dong!</span></label>
-            </div>
+          <div class="bintang">
+            <button type="button" class="bintang-btn" data-id="skala-2-1" data-nilai="1" aria-label="1 bintang">&#9733;</button>
+            <button type="button" class="bintang-btn" data-id="skala-2-1" data-nilai="2" aria-label="2 bintang">&#9733;</button>
+            <button type="button" class="bintang-btn" data-id="skala-2-1" data-nilai="3" aria-label="3 bintang">&#9733;</button>
+            <button type="button" class="bintang-btn" data-id="skala-2-1" data-nilai="4" aria-label="4 bintang">&#9733;</button>
+            <button type="button" class="bintang-btn" data-id="skala-2-1" data-nilai="5" aria-label="5 bintang">&#9733;</button>
           </div>
         </div>
       </li>
       <li class="tab-butir">
         <div class="butir-isi">
           <p class="butir-teks">bisa membicarakan perbedaan pendapat tanpa saling menyerang, dan tetap saling mendengarkan sampai menemukan titik temu?</p>
-          <div class="baris-pilihan">
-            <span class="nilai-butir" data-nilai-id="skala-2-2">0</span>
-            <div class="pilihan">
-              <label class="opsi"><input type="checkbox" data-id="skala-2-2" value="25"><span class="label">ya, paling!</span></label>
-              <label class="opsi"><input type="checkbox" data-id="skala-2-2" value="50"><span class="label">lumayan lah!</span></label>
-              <label class="opsi"><input type="checkbox" data-id="skala-2-2" value="75"><span class="label">dikit lagi!</span></label>
-              <label class="opsi"><input type="checkbox" data-id="skala-2-2" value="100"><span class="label">sudah dong!</span></label>
-            </div>
+          <div class="bintang">
+            <button type="button" class="bintang-btn" data-id="skala-2-2" data-nilai="1" aria-label="1 bintang">&#9733;</button>
+            <button type="button" class="bintang-btn" data-id="skala-2-2" data-nilai="2" aria-label="2 bintang">&#9733;</button>
+            <button type="button" class="bintang-btn" data-id="skala-2-2" data-nilai="3" aria-label="3 bintang">&#9733;</button>
+            <button type="button" class="bintang-btn" data-id="skala-2-2" data-nilai="4" aria-label="4 bintang">&#9733;</button>
+            <button type="button" class="bintang-btn" data-id="skala-2-2" data-nilai="5" aria-label="5 bintang">&#9733;</button>
           </div>
         </div>
       </li>
       <li class="tab-butir">
         <div class="butir-isi">
           <p class="butir-teks">sudah sepakat tentang rencana masa depan secara garis besar, dan kedua pihak merasa nyaman dengan arah yang dipilih?</p>
-          <div class="baris-pilihan">
-            <span class="nilai-butir" data-nilai-id="skala-2-3">0</span>
-            <div class="pilihan">
-              <label class="opsi"><input type="checkbox" data-id="skala-2-3" value="25"><span class="label">ya, paling!</span></label>
-              <label class="opsi"><input type="checkbox" data-id="skala-2-3" value="50"><span class="label">lumayan lah!</span></label>
-              <label class="opsi"><input type="checkbox" data-id="skala-2-3" value="75"><span class="label">dikit lagi!</span></label>
-              <label class="opsi"><input type="checkbox" data-id="skala-2-3" value="100"><span class="label">sudah dong!</span></label>
-            </div>
+          <div class="bintang">
+            <button type="button" class="bintang-btn" data-id="skala-2-3" data-nilai="1" aria-label="1 bintang">&#9733;</button>
+            <button type="button" class="bintang-btn" data-id="skala-2-3" data-nilai="2" aria-label="2 bintang">&#9733;</button>
+            <button type="button" class="bintang-btn" data-id="skala-2-3" data-nilai="3" aria-label="3 bintang">&#9733;</button>
+            <button type="button" class="bintang-btn" data-id="skala-2-3" data-nilai="4" aria-label="4 bintang">&#9733;</button>
+            <button type="button" class="bintang-btn" data-id="skala-2-3" data-nilai="5" aria-label="5 bintang">&#9733;</button>
           </div>
         </div>
       </li>
       <li class="tab-butir">
         <div class="butir-isi">
           <p class="butir-teks">tahu cara menyampaikan rasa tidak nyaman dengan jujur, tanpa menyindir atau menyimpan dendam?</p>
-          <div class="baris-pilihan">
-            <span class="nilai-butir" data-nilai-id="skala-2-4">0</span>
-            <div class="pilihan">
-              <label class="opsi"><input type="checkbox" data-id="skala-2-4" value="25"><span class="label">ya, paling!</span></label>
-              <label class="opsi"><input type="checkbox" data-id="skala-2-4" value="50"><span class="label">lumayan lah!</span></label>
-              <label class="opsi"><input type="checkbox" data-id="skala-2-4" value="75"><span class="label">dikit lagi!</span></label>
-              <label class="opsi"><input type="checkbox" data-id="skala-2-4" value="100"><span class="label">sudah dong!</span></label>
-            </div>
+          <div class="bintang">
+            <button type="button" class="bintang-btn" data-id="skala-2-4" data-nilai="1" aria-label="1 bintang">&#9733;</button>
+            <button type="button" class="bintang-btn" data-id="skala-2-4" data-nilai="2" aria-label="2 bintang">&#9733;</button>
+            <button type="button" class="bintang-btn" data-id="skala-2-4" data-nilai="3" aria-label="3 bintang">&#9733;</button>
+            <button type="button" class="bintang-btn" data-id="skala-2-4" data-nilai="4" aria-label="4 bintang">&#9733;</button>
+            <button type="button" class="bintang-btn" data-id="skala-2-4" data-nilai="5" aria-label="5 bintang">&#9733;</button>
           </div>
         </div>
       </li>
       <li class="tab-butir">
         <div class="butir-isi">
           <p class="butir-teks">siap jujur menyampaikan batas yang dilanggar, dan siap pula mendengar batas yang disampaikan pasangan?</p>
-          <div class="baris-pilihan">
-            <span class="nilai-butir" data-nilai-id="skala-2-5">0</span>
-            <div class="pilihan">
-              <label class="opsi"><input type="checkbox" data-id="skala-2-5" value="25"><span class="label">ya, paling!</span></label>
-              <label class="opsi"><input type="checkbox" data-id="skala-2-5" value="50"><span class="label">lumayan lah!</span></label>
-              <label class="opsi"><input type="checkbox" data-id="skala-2-5" value="75"><span class="label">dikit lagi!</span></label>
-              <label class="opsi"><input type="checkbox" data-id="skala-2-5" value="100"><span class="label">sudah dong!</span></label>
-            </div>
+          <div class="bintang">
+            <button type="button" class="bintang-btn" data-id="skala-2-5" data-nilai="1" aria-label="1 bintang">&#9733;</button>
+            <button type="button" class="bintang-btn" data-id="skala-2-5" data-nilai="2" aria-label="2 bintang">&#9733;</button>
+            <button type="button" class="bintang-btn" data-id="skala-2-5" data-nilai="3" aria-label="3 bintang">&#9733;</button>
+            <button type="button" class="bintang-btn" data-id="skala-2-5" data-nilai="4" aria-label="4 bintang">&#9733;</button>
+            <button type="button" class="bintang-btn" data-id="skala-2-5" data-nilai="5" aria-label="5 bintang">&#9733;</button>
           </div>
         </div>
       </li>
@@ -830,31 +776,27 @@
 
 <script>
   const halaman = Array.from(document.querySelectorAll('.halaman'));
-  const cek = Array.from(document.querySelectorAll('input[type="checkbox"][data-id]'));
-  const KUNCI_CENTANG = 'nantang-nikah-v7';
+  const bintangBtn = Array.from(document.querySelectorAll('.bintang-btn'));
+  const KUNCI_NILAI = 'nantang-nikah-v8';
+  const SKOR_MAKS = 5;
   let indeks = 0;
+  let nilai = {};
 
-  // Muat centang yang tersimpan
+  // Muat nilai bintang yang tersimpan
   try {
-    const centang = JSON.parse(localStorage.getItem(KUNCI_CENTANG) || '{}');
-    cek.forEach(c => { c.checked = centang[c.dataset.id] === Number(c.value); });
-  } catch (e) {}
+    nilai = JSON.parse(localStorage.getItem(KUNCI_NILAI) || '{}');
+  } catch (e) { nilai = {}; }
 
-  function simpanCentang() {
-    const data = {};
-    cek.forEach(c => { if (c.checked) data[c.dataset.id] = Number(c.value); });
-    try { localStorage.setItem(KUNCI_CENTANG, JSON.stringify(data)); } catch (e) {}
+  function simpanNilai() {
+    try { localStorage.setItem(KUNCI_NILAI, JSON.stringify(nilai)); } catch (e) {}
   }
 
-  // Skor satu kelompok: sudah = total poin, maks = jumlah butir x 100
+  // Skor satu kelompok: sudah = total poin, maks = jumlah butir x 5
   function skorDari(pred) {
-    const ids = new Set(cek.filter(pred).map(c => c.dataset.id));
+    const ids = new Set(bintangBtn.filter(pred).map(b => b.dataset.id));
     let sudah = 0;
-    ids.forEach(id => {
-      const pilih = cek.find(c => c.dataset.id === id && c.checked);
-      if (pilih) sudah += Number(pilih.value);
-    });
-    return { sudah, maks: ids.size * 100 };
+    ids.forEach(id => { sudah += Number(nilai[id]) || 0; });
+    return { sudah, maks: ids.size * SKOR_MAKS };
   }
 
   function persenDari(skor) {
@@ -862,22 +804,21 @@
   }
 
   function perbaruiProgres() {
-    // Nilai di awal baris setiap butir
-    document.querySelectorAll('[data-nilai-id]').forEach(el => {
-      const pilih = cek.find(c => c.dataset.id === el.dataset.nilaiId && c.checked);
-      el.textContent = pilih ? pilih.value : '0';
+    // Bintang sampai nilai butir menjadi kuning
+    bintangBtn.forEach(b => {
+      b.classList.toggle('on', Number(b.dataset.nilai) <= (Number(nilai[b.dataset.id]) || 0));
     });
-    // Sub item: x/y (x = total poin halaman, y = jumlah butir x 100)
+    // Sub item: x/y (x = total poin halaman, y = jumlah butir x 5)
     document.querySelectorAll('[data-persen-page]').forEach(el => {
       const pid = el.dataset.persenPage;
-      const skor = skorDari(c => c.dataset.id.startsWith(pid + '-'));
+      const skor = skorDari(b => b.dataset.id.startsWith(pid + '-'));
       el.textContent = skor.sudah + '/' + skor.maks;
     });
     // Kriteria utama: loading bar dengan persentase di tengah
     document.querySelectorAll('[data-persen-bagian]').forEach(el => {
       const bkey = el.dataset.persenBagian;
-      const skor = skorDari(c => {
-        const page = c.closest('.halaman');
+      const skor = skorDari(b => {
+        const page = b.closest('.halaman');
         return page && page.dataset.bagian === bkey;
       });
       const p = persenDari(skor);
@@ -912,9 +853,11 @@
 
   window.addEventListener('hashchange', dariHash);
 
-  cek.forEach(c => c.addEventListener('change', () => {
-    if (c.checked) cek.forEach(o => { if (o !== c && o.dataset.id === c.dataset.id) o.checked = false; });
-    simpanCentang();
+  bintangBtn.forEach(b => b.addEventListener('click', () => {
+    const n = Number(b.dataset.nilai);
+    // Klik bintang yang sama dua kali berurutan mereset nilai butir ke 0
+    nilai[b.dataset.id] = Number(nilai[b.dataset.id]) === n ? 0 : n;
+    simpanNilai();
     perbaruiProgres();
   }));
 
@@ -990,8 +933,8 @@
   document.getElementById('batal-reset').addEventListener('click', () => modal.classList.remove('buka'));
   modal.addEventListener('click', e => { if (e.target === modal) modal.classList.remove('buka'); });
   document.getElementById('konfirmasi-reset').addEventListener('click', () => {
-    cek.forEach(c => { c.checked = false; });
-    try { localStorage.removeItem(KUNCI_CENTANG); } catch (e) {}
+    nilai = {};
+    try { localStorage.removeItem(KUNCI_NILAI); } catch (e) {}
     perbaruiProgres();
     modal.classList.remove('buka');
   });
