@@ -74,10 +74,22 @@
 
   /* Isi halaman */
   .halaman h1 { font-size: 1.6em; margin-top: 0; }
-  .kepala { cursor: pointer; padding-bottom: 14px; margin-bottom: 20px; border-bottom: 1px solid #ddd; }
+  .kepala { cursor: default; padding-bottom: 14px; margin-bottom: 20px; border-bottom: 1px solid #ddd; }
   .kepala h1 { font-size: 1.9em; font-weight: bold; line-height: 1.2; margin-bottom: 6px; }
   .sub-judul { font-family: sans-serif; font-style: italic; font-size: 1em; color: #444; margin: 0 0 8px; }
-  .isi-halaman { display: none; }
+  .isi-halaman { display: block; }
+  .jadi-pemicu {
+    display: block; margin: 28px 0 8px; padding: 0; background: none; border: none;
+    font-family: sans-serif; font-weight: bold; font-size: 1.05em; color: var(--hitam);
+    text-align: left; cursor: pointer;
+  }
+  .ceklis-wrap { display: none; }
+  .ceklis-wrap.buka { display: block; }
+  .tab-daftar { counter-reset: nomor; }
+  .tab-butir::before {
+    counter-increment: nomor; content: counter(nomor) "."; flex-shrink: 0;
+    font-family: sans-serif; font-weight: bold; min-width: 20px; line-height: 1.6;
+  }
   .halaman.terbuka .isi-halaman { display: block; }
   .tab-daftar { list-style: none; padding: 0; margin: 0 0 8px; }
   .tab-butir {
@@ -99,7 +111,6 @@
   }
   .opsi:hover, .opsi:has(input:checked) { background: var(--kuning); }
   .opsi input { width: 16px; height: 16px; margin: 0; flex-shrink: 0; }
-  .tab-butir:not(.aktif) { display: none; }
   .halaman .tab-butir { border: none; border-radius: 0; padding: 0; background: none; margin-bottom: 18px; }
   .judul-tab { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; margin: 28px 0 8px; }
   .judul-tab .ceklis-judul { margin: 0; }
@@ -198,7 +209,7 @@
   .sub-judul-btn {
     display: flex; justify-content: space-between; align-items: center;
     width: 100%; padding: 12px 8px; background: none; border: none;
-    font-family: sans-serif; font-size: 0.95em; font-weight: bold;
+    font-family: sans-serif; font-size: 1em; font-weight: bold;
     text-align: left; color: var(--hitam); cursor: pointer;
   }
   .sub-judul-btn::after { content: "+"; font-size: 1.2em; }
@@ -226,6 +237,19 @@
       #syarat-skala .gambar-skala { margin-top:10px; }
     }
   
+  .sub-detil { border-top: 1px dashed #ddd; }
+  .sub-detil-btn {
+    display: flex; justify-content: space-between; align-items: center;
+    width: 100%; padding: 12px 8px 12px 14px; background: none; border: none;
+    font-family: sans-serif; font-size: 1em; font-weight: bold;
+    text-align: left; color: var(--hitam); cursor: pointer;
+  }
+  .sub-detil-btn::after { content: "+"; font-size: 1.2em; }
+  .sub-detil.terbuka .sub-detil-btn::after { content: "\2212"; }
+  .sub-detil-btn:hover, .sub-detil-btn:active { background: var(--kuning); }
+  .sub-detil .sub-detil-isi { display: none; padding: 0 0 8px 14px; }
+  .sub-detil.terbuka .sub-detil-isi { display: block; }
+
   .kuning-bg { background: var(--kuning); }
 </style>
 </head>
@@ -277,130 +301,112 @@
         <div class="sub-grup">
           <button class="sub-judul-btn" type="button"><span>A. Mengapa mesti dewasa?</span></button>
           <ol class="sub-daftar">
-            <li><a class="sub" href="#syarat-1"><span>01. Apakah sudah waktunya?</span><span class="persen" data-persen-page="syarat-1">0%</span></a></li>
+            <li class="sub-detil">
+              <button class="sub-detil-btn" type="button"><span>Tidak ada pilihan</span></button>
+              <div class="sub-detil-isi">
+                <ol>
+                  <li><a class="sub" href="#syarat-1"><span>01. Apakah sudah waktunya?</span><span class="persen" data-persen-page="syarat-1">0%</span></a></li>
+                  <li><a class="sub" href="#syarat-1"><span>02. Berpacu mengejar dewasa</span><span class="persen" data-persen-page="syarat-1">0%</span></a></li>
+                  <li><a class="sub" href="#syarat-1"><span>03. Kalau dilarang, Jangan melawan!</span><span class="persen" data-persen-page="syarat-1">0%</span></a></li>
+                  <li><a class="sub" href="#syarat-1"><span>04. Wahai orang tua, jangan melarang-larang!</span><span class="persen" data-persen-page="syarat-1">0%</span></a></li>
+                  <li><a class="sub" href="#syarat-1"><span>05. Susah dulu, jangan susah kemudian</span><span class="persen" data-persen-page="syarat-1">0%</span></a></li>
+                  <li><a class="sub" href="#syarat-1"><span>06. Bersenang-senang tapi Aman</span><span class="persen" data-persen-page="syarat-1">0%</span></a></li>
+                </ol>
+              </div>
+            </li>
+            <li class="sub-detil">
+              <button class="sub-detil-btn" type="button"><span>Ada banyak tantangan</span></button>
+              <div class="sub-detil-isi">
+                <ol>
+                  <li><a class="sub" href="#syarat-1"><span>07. Jatuh Cinta Apa Jatuh Hormon?</span><span class="persen" data-persen-page="syarat-1">0%</span></a></li>
+                  <li><a class="sub" href="#syarat-1"><span>08. Nikmat Hormon, Nikmat Sesaat</span><span class="persen" data-persen-page="syarat-1">0%</span></a></li>
+                  <li><a class="sub" href="#syarat-1"><span>09. Mencintai Itu Memuliakan</span><span class="persen" data-persen-page="syarat-1">0%</span></a></li>
+                  <li><a class="sub" href="#syarat-1"><span>10. Cintai Dirimu Sebelum Minta Dicintai</span><span class="persen" data-persen-page="syarat-1">0%</span></a></li>
+                  <li><a class="sub" href="#syarat-1"><span>11. Harus Dia dan Harus Sekarang</span><span class="persen" data-persen-page="syarat-1">0%</span></a></li>
+                  <li><a class="sub" href="#syarat-1"><span>12. Pacaran++: Nafsu Dapat, Estafet Generasi Dapat</span><span class="persen" data-persen-page="syarat-1">0%</span></a></li>
+                </ol>
+              </div>
+            </li>
           </ol>
-          <ol class="sub-daftar">
-            <li><a class="sub" href="#syarat-1"><span>02. Berpacu mengejar dewasa</span><span class="persen" data-persen-page="syarat-1">0%</span></a></li>
-          </ol>
-          <ol class="sub-daftar">
-            <li><a class="sub" href="#syarat-1"><span>03. Kalau dilarang, Jangan melawan!</span><span class="persen" data-persen-page="syarat-1">0%</span></a></li>
-          </ol>
-          <ol class="sub-daftar">
-            <li><a class="sub" href="#syarat-1"><span>04. Wahai orang tua, jangan melarang-larang!</span><span class="persen" data-persen-page="syarat-1">0%</span></a></li>
-          </ol>
-          <ol class="sub-daftar">
-            <li><a class="sub" href="#syarat-1"><span>05. Susah dulu, jangan susah kemudian</span><span class="persen" data-persen-page="syarat-1">0%</span></a></li>
-          </ol>
-          <ol class="sub-daftar">
-            <li><a class="sub" href="#syarat-1"><span>06. Bersenang-senang tapi Aman</span><span class="persen" data-persen-page="syarat-1">0%</span></a></li>
-          </ol>
-          <ol class="sub-daftar">
-            <li><a class="sub" href="#syarat-1"><span>07. Jatuh Cinta Apa Jatuh Hormon?</span><span class="persen" data-persen-page="syarat-1">0%</span></a></li>
-          </ol>
-          <ol class="sub-daftar">
-            <li><a class="sub" href="#syarat-1"><span>08. Nikmat Hormon, Nikmat Sesaat</span><span class="persen" data-persen-page="syarat-1">0%</span></a></li>
-          </ol>
-          <ol class="sub-daftar">
-            <li><a class="sub" href="#syarat-1"><span>09. Mencintai Itu Memuliakan</span><span class="persen" data-persen-page="syarat-1">0%</span></a></li>
-          </ol>
-          <ol class="sub-daftar">
-            <li><a class="sub" href="#syarat-1"><span>10. Cintai Dirimu Sebelum Minta Dicintai</span><span class="persen" data-persen-page="syarat-1">0%</span></a></li>
-          </ol>
-          <ol class="sub-daftar">
-            <li><a class="sub" href="#syarat-1"><span>11. Harus Dia dan Harus Sekarang</span><span class="persen" data-persen-page="syarat-1">0%</span></a></li>
-          </ol>
-          <ol class="sub-daftar">
-            <li><a class="sub" href="#syarat-1"><span>12. Pacaran++: Nafsu Dapat, Estafet Generasi Dapat</span><span class="persen" data-persen-page="syarat-1">0%</span></a></li>
-          </ol>          
         </div>
         <div class="sub-grup">
           <button class="sub-judul-btn" type="button"><span>B. Apa Itu Dewasa?</span></button>
           <ol class="sub-daftar">
-            <li><a class="sub" href="#syarat-2"><span>01. Konkret → Abstrak</span><span class="persen" data-persen-page="syarat-2">0%</span></a></li>
-          </ol>
-          <ol class="sub-daftar">
-            <li><a class="sub" href="#syarat-1"><span>02. Kepastian → Ketidakpastian</span><span class="persen" data-persen-page="syarat-1">0%</span></a></li>
-          </ol>
-          <ol class="sub-daftar">
-            <li><a class="sub" href="#syarat-1"><span>03. Mengikuti Pikiran → Mengamati Pikiran</span><span class="persen" data-persen-page="syarat-1">0%</span></a></li>
-          </ol>
-          <ol class="sub-daftar">
-            <li><a class="sub" href="#syarat-1"><span>04. Menang Sendiri → Mengoreksi Diri</span><span class="persen" data-persen-page="syarat-1">0%</span></a></li>
-          </ol>
-          <ol class="sub-daftar">
-            <li><a class="sub" href="#syarat-1"><span>05. Tergesa-gesa → Tenang-Waspada</span><span class="persen" data-persen-page="syarat-1">0%</span></a></li>
-          </ol>
-          <ol class="sub-daftar">
-            <li><a class="sub" href="#syarat-1"><span>06. Saat Ini Saja → Selama-lamanya</span><span class="persen" data-persen-page="syarat-1">0%</span></a></li>
-          </ol>
-          <ol class="sub-daftar">
-            <li><a class="sub" href="#syarat-1"><span>07. Judul</span><span class="persen" data-persen-page="syarat-1">0%</span></a></li>
-          </ol>
-          <ol class="sub-daftar">
-            <li><a class="sub" href="#syarat-1"><span>08. Mengelak → Menanggung </span><span class="persen" data-persen-page="syarat-1">0%</span></a></li>
-          </ol>
-          <ol class="sub-daftar">
-            <li><a class="sub" href="#syarat-1"><span>09. Aku Adalah Emosiku → Aku Pikir-pikir Dulu</span><span class="persen" data-persen-page="syarat-1">0%</span></a></li>
-          </ol>
-          <ol class="sub-daftar">
-            <li><a class="sub" href="#syarat-1"><span>10. Tergantung Bantuan → Memilah Kemampuan</span><span class="persen" data-persen-page="syarat-1">0%</span></a></li>
-          </ol>
-          <ol class="sub-daftar">
-            <li><a class="sub" href="#syarat-1"><span>11. Egois → Empatis</span><span class="persen" data-persen-page="syarat-1">0%</span></a></li>
-          </ol>
-          <ol class="sub-daftar">
-            <li><a class="sub" href="#syarat-1"><span>12. FOMO → JORO</span><span class="persen" data-persen-page="syarat-1">0%</span></a></li>
-          </ol>
-          <ol class="sub-daftar">
-            <li><a class="sub" href="#syarat-1"><span>13. Norma → Nilai</span><span class="persen" data-persen-page="syarat-1">0%</span></a></li>
-          </ol>
-          <ol class="sub-daftar">
-            <li><a class="sub" href="#syarat-1"><span>14. Untung → Adil</span><span class="persen" data-persen-page="syarat-1">0%</span></a></li>
+            <li class="sub-detil">
+              <button class="sub-detil-btn" type="button"><span>Berubah</span></button>
+              <div class="sub-detil-isi">
+                <ol>
+                  <li><a class="sub" href="#syarat-2"><span>01. Konkret → Abstrak</span><span class="persen" data-persen-page="syarat-2">0%</span></a></li>
+                  <li><a class="sub" href="#syarat-1"><span>02. Kepastian → Ketidakpastian</span><span class="persen" data-persen-page="syarat-1">0%</span></a></li>
+                  <li><a class="sub" href="#syarat-1"><span>03. Mengikuti Pikiran → Mengamati Pikiran</span><span class="persen" data-persen-page="syarat-1">0%</span></a></li>
+                  <li><a class="sub" href="#syarat-1"><span>04. Menang Sendiri → Mengoreksi Diri</span><span class="persen" data-persen-page="syarat-1">0%</span></a></li>
+                  <li><a class="sub" href="#syarat-1"><span>05. Tergesa-gesa → Tenang-Waspada</span><span class="persen" data-persen-page="syarat-1">0%</span></a></li>
+                  <li><a class="sub" href="#syarat-1"><span>06. Saat Ini Saja → Selama-lamanya</span><span class="persen" data-persen-page="syarat-1">0%</span></a></li>
+                  <li><a class="sub" href="#syarat-1"><span>07. Judul</span><span class="persen" data-persen-page="syarat-1">0%</span></a></li>
+                </ol>
+              </div>
+            </li>
+            <li class="sub-detil">
+              <button class="sub-detil-btn" type="button"><span>Bertahan</span></button>
+              <div class="sub-detil-isi">
+                <ol>
+                  <li><a class="sub" href="#syarat-1"><span>08. Mengelak → Menanggung </span><span class="persen" data-persen-page="syarat-1">0%</span></a></li>
+                  <li><a class="sub" href="#syarat-1"><span>09. Aku Adalah Emosiku → Aku Pikir-pikir Dulu</span><span class="persen" data-persen-page="syarat-1">0%</span></a></li>
+                  <li><a class="sub" href="#syarat-1"><span>10. Tergantung Bantuan → Memilah Kemampuan</span><span class="persen" data-persen-page="syarat-1">0%</span></a></li>
+                  <li><a class="sub" href="#syarat-1"><span>11. Egois → Empatis</span><span class="persen" data-persen-page="syarat-1">0%</span></a></li>
+                  <li><a class="sub" href="#syarat-1"><span>12. FOMO → JORO</span><span class="persen" data-persen-page="syarat-1">0%</span></a></li>
+                  <li><a class="sub" href="#syarat-1"><span>13. Norma → Nilai</span><span class="persen" data-persen-page="syarat-1">0%</span></a></li>
+                  <li><a class="sub" href="#syarat-1"><span>14. Untung → Adil</span><span class="persen" data-persen-page="syarat-1">0%</span></a></li>
+                </ol>
+              </div>
+            </li>
           </ol>
         </div>
         <div class="sub-grup">
           <button class="sub-judul-btn" type="button"><span>C. Adegan Dewasa?</span></button>
           <ol class="sub-daftar">
-            <li><a class="sub" href="#syarat-2"><span>01. Jati Diri</span><span class="persen" data-persen-page="syarat-2">0%</span></a></li>
-          </ol>
-          <ol class="sub-daftar">
-            <li><a class="sub" href="#syarat-1"><span>02. Hidup Seimbang</span><span class="persen" data-persen-page="syarat-1">0%</span></a></li>
-          </ol>
-          <ol class="sub-daftar">
-            <li><a class="sub" href="#syarat-1"><span>03. Kreatif</span><span class="persen" data-persen-page="syarat-1">0%</span></a></li>
-          </ol>
-          <ol class="sub-daftar">
-            <li><a class="sub" href="#syarat-1"><span>04. Judul</span><span class="persen" data-persen-page="syarat-1">0%</span></a></li>
-          </ol>
-          <ol class="sub-daftar">
-            <li><a class="sub" href="#syarat-1"><span>05. Judul</span><span class="persen" data-persen-page="syarat-1">0%</span></a></li>
-          </ol>
-          <ol class="sub-daftar">
-            <li><a class="sub" href="#syarat-1"><span>06. Judul</span><span class="persen" data-persen-page="syarat-1">0%</span></a></li>
-          </ol>
-          <ol class="sub-daftar">
-            <li><a class="sub" href="#syarat-1"><span>07. Judul</span><span class="persen" data-persen-page="syarat-1">0%</span></a></li>
-          </ol>
-          <ol class="sub-daftar">
-            <li><a class="sub" href="#syarat-1"><span>08. Judul</span><span class="persen" data-persen-page="syarat-1">0%</span></a></li>
-          </ol>
-          <ol class="sub-daftar">
-            <li><a class="sub" href="#syarat-1"><span>09. Judul</span><span class="persen" data-persen-page="syarat-1">0%</span></a></li>
-          </ol>
-          <ol class="sub-daftar">
-            <li><a class="sub" href="#syarat-1"><span>10. Judul</span><span class="persen" data-persen-page="syarat-1">0%</span></a></li>
-          </ol>
-          <ol class="sub-daftar">
-            <li><a class="sub" href="#syarat-1"><span>11. Judul</span><span class="persen" data-persen-page="syarat-1">0%</span></a></li>
-          </ol>
-          <ol class="sub-daftar">
-            <li><a class="sub" href="#syarat-1"><span>12. Judul</span><span class="persen" data-persen-page="syarat-1">0%</span></a></li>
-          </ol>
-          <ol class="sub-daftar">
-            <li><a class="sub" href="#syarat-1"><span>13. Judul</span><span class="persen" data-persen-page="syarat-1">0%</span></a></li>
-          </ol>
-          <ol class="sub-daftar">
-            <li><a class="sub" href="#syarat-1"><span>14. Judul</span><span class="persen" data-persen-page="syarat-1">0%</span></a></li>
+            <li class="sub-detil">
+              <button class="sub-detil-btn" type="button"><span>Kreatif</span></button>
+              <div class="sub-detil-isi">
+                <ol>
+                  <li><a class="sub" href="#syarat-2"><span>01. Jati Diri</span><span class="persen" data-persen-page="syarat-2">0%</span></a></li>
+                  <li><a class="sub" href="#syarat-1"><span>02. Hidup Seimbang</span><span class="persen" data-persen-page="syarat-1">0%</span></a></li>
+                  <li><a class="sub" href="#syarat-1"><span>03. Kreatif</span><span class="persen" data-persen-page="syarat-1">0%</span></a></li>
+                  <li><a class="sub" href="#syarat-1"><span>04. Judul</span><span class="persen" data-persen-page="syarat-1">0%</span></a></li>
+                  <li><a class="sub" href="#syarat-1"><span>05. Judul</span><span class="persen" data-persen-page="syarat-1">0%</span></a></li>
+                  <li><a class="sub" href="#syarat-1"><span>06. Judul</span><span class="persen" data-persen-page="syarat-1">0%</span></a></li>
+                  <li><a class="sub" href="#syarat-1"><span>07. Judul</span><span class="persen" data-persen-page="syarat-1">0%</span></a></li>
+                </ol>
+              </div>
+            </li>
+            <li class="sub-detil">
+              <button class="sub-detil-btn" type="button"><span>Jati Diri</span></button>
+              <div class="sub-detil-isi">
+                <ol>
+                  <li><a class="sub" href="#syarat-1"><span>08. Judul</span><span class="persen" data-persen-page="syarat-1">0%</span></a></li>
+                  <li><a class="sub" href="#syarat-1"><span>09. Judul</span><span class="persen" data-persen-page="syarat-1">0%</span></a></li>
+                  <li><a class="sub" href="#syarat-1"><span>10. Judul</span><span class="persen" data-persen-page="syarat-1">0%</span></a></li>
+                  <li><a class="sub" href="#syarat-1"><span>11. Judul</span><span class="persen" data-persen-page="syarat-1">0%</span></a></li>
+                  <li><a class="sub" href="#syarat-1"><span>12. Judul</span><span class="persen" data-persen-page="syarat-1">0%</span></a></li>
+                  <li><a class="sub" href="#syarat-1"><span>13. Judul</span><span class="persen" data-persen-page="syarat-1">0%</span></a></li>
+                  <li><a class="sub" href="#syarat-1"><span>14. Judul</span><span class="persen" data-persen-page="syarat-1">0%</span></a></li>
+                </ol>
+              </div>
+            </li>
+                        <li class="sub-detil">
+              <button class="sub-detil-btn" type="button"><span>Hidup Seimbang</span></button>
+              <div class="sub-detil-isi">
+                <ol>
+                  <li><a class="sub" href="#syarat-1"><span>08. Judul</span><span class="persen" data-persen-page="syarat-1">0%</span></a></li>
+                  <li><a class="sub" href="#syarat-1"><span>09. Judul</span><span class="persen" data-persen-page="syarat-1">0%</span></a></li>
+                  <li><a class="sub" href="#syarat-1"><span>10. Judul</span><span class="persen" data-persen-page="syarat-1">0%</span></a></li>
+                  <li><a class="sub" href="#syarat-1"><span>11. Judul</span><span class="persen" data-persen-page="syarat-1">0%</span></a></li>
+                  <li><a class="sub" href="#syarat-1"><span>12. Judul</span><span class="persen" data-persen-page="syarat-1">0%</span></a></li>
+                  <li><a class="sub" href="#syarat-1"><span>13. Judul</span><span class="persen" data-persen-page="syarat-1">0%</span></a></li>
+                  <li><a class="sub" href="#syarat-1"><span>14. Judul</span><span class="persen" data-persen-page="syarat-1">0%</span></a></li>
+                </ol>
+              </div>
+            </li>
           </ol>
         </div>
       </div>
@@ -451,7 +457,7 @@
 
   <section class="halaman" id="syarat-1" data-judul="Syarat Mental dan Emosi" data-bagian="syarat" data-page="syarat-1">
     <div class="thumb"><iframe src="https://www.youtube.com/embed/4mM70CTt14A" title="Nantang Nikah" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
-    <div class="kepala" role="button" tabindex="0">
+    <div class="kepala">
       <h1>Syarat Mental dan Emosi</h1>
       <p class="sub-judul">Kesiapan mental dan emosi sebelum pacaran</p>
     </div>
@@ -459,16 +465,9 @@
     <p>Sebelum menjalin hubungan yang serius, kesiapan mental sering menjadi syarat yang paling diabaikan. Orang yang masih mencari pengakuan dari orang lain biasanya mudah terluka ketika hubungan mulai tidak nyaman.</p>
     <p>Kesiapan emosi terlihat dari kemampuan menerima penolakan, mengelola kecewa, dan tetap tenang saat keadaan tidak sesuai harapan. Tanda ini lebih penting daripada sekadar perasaan suka.</p>
     <p>Coba jujur pada diri sendiri: apakah kamu mendekati seseorang karena ingin dihargai, atau karena benar-benar ingin membangun sesuatu bersama? Jawaban ini menentukan langkah berikutnya.</p>
-    <div class="judul-tab">
-      <div class="ceklis-judul">Jadi, apakah kamu:</div>
-      <div class="paginasi">
-        <button type="button" class="pg aktif">1</button>
-        <button type="button" class="pg">2</button>
-        <button type="button" class="pg">3</button>
-        <button type="button" class="pg">4</button>
-        <button type="button" class="pg">5</button>
-      </div>
-    </div>
+    <button type="button" class="jadi-pemicu" aria-expanded="false">Jadi ...</button>
+    <div class="ceklis-wrap">
+    <div class="ceklis-judul">Apakah kamu:</div>
     <ol class="tab-daftar">
       <li class="tab-butir aktif">
         <div class="butir-isi">
@@ -533,10 +532,11 @@
     </ol>
     <a class="tombol-progres" href="#progres">Penasaran hasilnya?</a>
     </div>
+    </div>
   </section>
   <section class="halaman" id="syarat-2" data-judul="Syarat Finansial dan Tanggung Jawab" data-bagian="syarat" data-page="syarat-2">
     <div class="thumb"><iframe src="https://www.youtube.com/embed/4mM70CTt14A" title="Nantang Nikah" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
-    <div class="kepala" role="button" tabindex="0">
+    <div class="kepala">
       <h1>Syarat Finansial dan Tanggung Jawab</h1>
       <p class="sub-judul">Kemandirian dan tanggung jawab finansial</p>
     </div>
@@ -544,16 +544,9 @@
     <p>Pernikahan membutuhkan kemampuan mengelola penghasilan, pengeluaran, dan kebutuhan bersama. Karena itu, kondisi keuangan pribadi perlu dibereskan sebelum memikirkan hubungan yang lebih serius.</p>
     <p>Tanggung jawab juga terlihat dari hal-hal kecil, seperti menepati janji, mengatur waktu, dan menyelesaikan kewajiban tanpa harus diingatkan terus-menerus.</p>
     <p>Jangan menunggu sempurna untuk mulai. Cukup pastikan kamu sudah mampu berdiri di atas kaki sendiri, sehingga keputusan yang diambil nanti tidak lahir dari tekanan.</p>
-    <div class="judul-tab">
-      <div class="ceklis-judul">Jadi, apakah kamu:</div>
-      <div class="paginasi">
-        <button type="button" class="pg aktif">1</button>
-        <button type="button" class="pg">2</button>
-        <button type="button" class="pg">3</button>
-        <button type="button" class="pg">4</button>
-        <button type="button" class="pg">5</button>
-      </div>
-    </div>
+    <button type="button" class="jadi-pemicu" aria-expanded="false">Jadi ...</button>
+    <div class="ceklis-wrap">
+    <div class="ceklis-judul">Apakah kamu:</div>
     <ol class="tab-daftar">
       <li class="tab-butir aktif">
         <div class="butir-isi">
@@ -618,6 +611,7 @@
     </ol>
     <a class="tombol-progres" href="#progres">Penasaran hasilnya?</a>
     </div>
+    </div>
   </section>
 
   <!-- Halaman siasat  nikah -->
@@ -627,7 +621,7 @@
 
   <section class="halaman" id="siasat-1" data-judul="Siasat Mengenal Calon" data-bagian="siasat" data-page="siasat-1">
     <div class="thumb"><iframe src="https://www.youtube.com/embed/4mM70CTt14A" title="Nantang Nikah" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
-    <div class="kepala" role="button" tabindex="0">
+    <div class="kepala">
       <h1>Siasat Mengenal Calon</h1>
       <p class="sub-judul">Cara mengenal calon lebih dalam</p>
     </div>
@@ -635,16 +629,9 @@
     <p>Mengenal calon dengan tujuan menikah berbeda dari sekadar berkencan. Fokusnya bukan pada pesona, melainkan pada kebiasaan, nilai, dan cara seseorang memperlakukan orang lain.</p>
     <p>Ajukan pertanyaan tentang rencana hidup, pandangan tentang keluarga, dan cara menyelesaikan konflik. Perhatikan bagaimana ia menjawab, bukan hanya apa yang ia katakan.</p>
     <p>Amati juga cara ia bersikap kepada orang yang lebih lemah, kepada keluarganya, dan saat sedang kesal. Sikap seperti ini jauh lebih jujur daripada kesan pertama.</p>
-    <div class="judul-tab">
-      <div class="ceklis-judul">Jadi, apakah kamu:</div>
-      <div class="paginasi">
-        <button type="button" class="pg aktif">1</button>
-        <button type="button" class="pg">2</button>
-        <button type="button" class="pg">3</button>
-        <button type="button" class="pg">4</button>
-        <button type="button" class="pg">5</button>
-      </div>
-    </div>
+    <button type="button" class="jadi-pemicu" aria-expanded="false">Jadi ...</button>
+    <div class="ceklis-wrap">
+    <div class="ceklis-judul">Apakah kamu:</div>
     <ol class="tab-daftar">
       <li class="tab-butir aktif">
         <div class="butir-isi">
@@ -709,10 +696,11 @@
     </ol>
     <a class="tombol-progres" href="#progres">Penasaran hasilnya?</a>
     </div>
+    </div>
   </section>
   <section class="halaman" id="siasat-2" data-judul="Siasat Melibatkan Keluarga" data-bagian="siasat" data-page="siasat-2">
     <div class="thumb"><iframe src="https://www.youtube.com/embed/4mM70CTt14A" title="Nantang Nikah" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
-    <div class="kepala" role="button" tabindex="0">
+    <div class="kepala">
       <h1>Siasat Melibatkan Keluarga</h1>
       <p class="sub-judul">Melibatkan keluarga sejak awal</p>
     </div>
@@ -720,16 +708,9 @@
     <p>Keluarga atau orang yang kamu percaya bisa membantu melihat hal-hal yang mungkin terlewat ketika perasaan sedang kuat. Mereka juga membantu menjaga proses tetap sehat dan terarah.</p>
     <p>Libatkan mereka sejak tahap perkenalan, dengan cara yang terbuka dan sopan. Jelaskan niat kamu, dan dengarkan masukan mereka dengan kepala dingin.</p>
     <p>Keterlibatan keluarga juga membuat proses menuju pernikahan lebih tenang, karena sejak awal sudah ada pihak yang tahu dan ikut mendampingi.</p>
-    <div class="judul-tab">
-      <div class="ceklis-judul">Jadi, apakah kamu:</div>
-      <div class="paginasi">
-        <button type="button" class="pg aktif">1</button>
-        <button type="button" class="pg">2</button>
-        <button type="button" class="pg">3</button>
-        <button type="button" class="pg">4</button>
-        <button type="button" class="pg">5</button>
-      </div>
-    </div>
+    <button type="button" class="jadi-pemicu" aria-expanded="false">Jadi ...</button>
+    <div class="ceklis-wrap">
+    <div class="ceklis-judul">Apakah kamu:</div>
     <ol class="tab-daftar">
       <li class="tab-butir aktif">
         <div class="butir-isi">
@@ -794,6 +775,7 @@
     </ol>
     <a class="tombol-progres" href="#progres">Penasaran hasilnya?</a>
     </div>
+    </div>
   </section>
 
   <!-- Halaman skala  nikah -->
@@ -803,7 +785,7 @@
 
   <section class="halaman" id="skala-1" data-judul="Skala Kesiapan Diri" data-bagian="skala" data-page="skala-1">
     <div class="thumb"><iframe src="https://www.youtube.com/embed/4mM70CTt14A" title="Nantang Nikah" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
-    <div class="kepala" role="button" tabindex="0">
+    <div class="kepala">
       <h1>Skala Kesiapan Diri</h1>
       <p class="sub-judul">Menilai sejauh mana kamu sudah siap</p>
     </div>
@@ -811,16 +793,9 @@
     <p>Skala kesiapan diri membantu melihat sejauh mana kamu sudah siap, bukan untuk menghakimi. Setiap orang berada di titik yang berbeda, dan itu wajar.</p>
     <p>Gunakan ceklis sebagai cermin. Semakin banyak yang kamu centang, semakin besar kemungkinan kamu siap melangkah. Yang belum tercentang bisa menjadi daftar perbaikan.</p>
     <p>Ulangi penilaian ini dari waktu ke waktu. Kesiapan bisa berubah seiring pengalaman, sehingga jangan merasa sudah selesai hanya karena pernah lulus satu kali.</p>
-    <div class="judul-tab">
-      <div class="ceklis-judul">Jadi, apakah kamu:</div>
-      <div class="paginasi">
-        <button type="button" class="pg aktif">1</button>
-        <button type="button" class="pg">2</button>
-        <button type="button" class="pg">3</button>
-        <button type="button" class="pg">4</button>
-        <button type="button" class="pg">5</button>
-      </div>
-    </div>
+    <button type="button" class="jadi-pemicu" aria-expanded="false">Jadi ...</button>
+    <div class="ceklis-wrap">
+    <div class="ceklis-judul">Apakah kamu:</div>
     <ol class="tab-daftar">
       <li class="tab-butir aktif">
         <div class="butir-isi">
@@ -885,10 +860,11 @@
     </ol>
     <a class="tombol-progres" href="#progres">Penasaran hasilnya?</a>
     </div>
+    </div>
   </section>
   <section class="halaman" id="skala-2" data-judul="Skala Kesiapan Hubungan" data-bagian="skala" data-page="skala-2">
     <div class="thumb"><iframe src="https://www.youtube.com/embed/4mM70CTt14A" title="Nantang Nikah" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
-    <div class="kepala" role="button" tabindex="0">
+    <div class="kepala">
       <h1>Skala Kesiapan Hubungan</h1>
       <p class="sub-judul">Menilai kualitas hubungan kalian</p>
     </div>
@@ -896,16 +872,9 @@
     <p>Kesiapan hubungan dilihat dari kualitas komunikasi, kesepakatan, dan rasa hormat di antara dua orang. Skala ini membantu menilai apakah hubungan sudah berjalan di jalur yang sehat.</p>
     <p>Perhatikan apakah kalian bisa membicarakan batas, rencana, dan perbedaan tanpa saling menyerang. Hubungan yang siap menuju pernikahan biasanya lebih tenang meski sedang berbeda pendapat.</p>
     <p>Jika beberapa ceklis belum tercentang, bukan berarti hubungan harus berakhir. Itu bisa menjadi bahan percakapan yang jujur untuk memperbaiki hubungan.</p>
-    <div class="judul-tab">
-      <div class="ceklis-judul">Jadi, apakah kamu:</div>
-      <div class="paginasi">
-        <button type="button" class="pg aktif">1</button>
-        <button type="button" class="pg">2</button>
-        <button type="button" class="pg">3</button>
-        <button type="button" class="pg">4</button>
-        <button type="button" class="pg">5</button>
-      </div>
-    </div>
+    <button type="button" class="jadi-pemicu" aria-expanded="false">Jadi ...</button>
+    <div class="ceklis-wrap">
+    <div class="ceklis-judul">Apakah kamu:</div>
     <ol class="tab-daftar">
       <li class="tab-butir aktif">
         <div class="butir-isi">
@@ -969,6 +938,7 @@
       </li>
     </ol>
     <a class="tombol-progres" href="#progres">Penasaran hasilnya?</a>
+    </div>
     </div>
   </section>
 
@@ -1081,29 +1051,23 @@
     btn.addEventListener('click', () => btn.closest('.bagian').classList.toggle('terbuka'));
   });
 
+  // Buka dan tutup sub detil
+  document.querySelectorAll('.sub-detil-btn').forEach(btn => {
+    btn.addEventListener('click', () => btn.closest('.sub-detil').classList.toggle('terbuka'));
+  });
+
   // Buka dan tutup sub bagian (Sub 1, Sub 2)
   document.querySelectorAll('.sub-judul-btn').forEach(btn => {
     btn.addEventListener('click', () => btn.closest('.sub-grup').classList.toggle('terbuka'));
   });
 
-  // Buka dan tutup isi tiap halaman (judul + sub judul selalu tampil)
-  document.querySelectorAll('.kepala').forEach(k => {
-    const bukaTutup = () => k.closest('.halaman').classList.toggle('terbuka');
-    k.addEventListener('click', bukaTutup);
-    k.addEventListener('keydown', e => {
-      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); bukaTutup(); }
+  // Tombol "Jadi, ..." memunculkan seluruh ceklis di bawahnya
+  document.querySelectorAll('.jadi-pemicu').forEach(b => {
+    b.addEventListener('click', () => {
+      const wrap = b.nextElementSibling;
+      const buka = wrap.classList.toggle('buka');
+      b.setAttribute('aria-expanded', buka ? 'true' : 'false');
     });
-  });
-
-  // Paginasi butir ceklis: tampil satu butir per nomor
-  document.querySelectorAll('.paginasi').forEach(pg => {
-    const halamanIni = pg.closest('.halaman');
-    const butir = Array.from(halamanIni.querySelectorAll('.tab-butir'));
-    const tombol = Array.from(pg.querySelectorAll('.pg'));
-    tombol.forEach((b, i) => b.addEventListener('click', () => {
-      butir.forEach((x, j) => x.classList.toggle('aktif', j === i));
-      tombol.forEach((y, j) => y.classList.toggle('aktif', j === i));
-    }));
   });
 
   // Panah transparan
