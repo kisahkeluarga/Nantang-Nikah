@@ -914,7 +914,33 @@
   </div>
 </div>
 
+  
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
 <script>
+
+
+// ===== KONEKSI SUPABASE =====
+
+const SUPABASE_URL = 'https://foqloutvnnpnlyreonbd.supabase.co';
+const SUPABASE_KEY = 'sb_publishable_C44XuTfpR4fQlr0YfjL40A_Vu_H-r_O';
+
+let supabaseClient = null;
+
+if (window.supabase) {
+  supabaseClient = window.supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_KEY
+  );
+}
+
+console.log(
+  'Supabase Client:',
+  supabaseClient ? 'Terhubung' : 'Tidak tersedia'
+);
+
+  
+  
   const halaman = Array.from(document.querySelectorAll('.halaman'));
 
   // ===== Blok ceklis: teks per halaman (id bintang = halaman-nomor) =====
