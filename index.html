@@ -1017,8 +1017,8 @@ console.log(
           '<div class="menu-isi">' +
             '<a class="menu-logo" href="#sampul" aria-label="Ke sampul"><img src="gbr/nn_logo.png" alt="Nantang Nikah"></a>' +
             '<nav class="menu-links" aria-label="Menu">' + menu + '</nav>' +
-            ''<div class="menu-aksi">' +
-  '<button type="button" class="mbtn kecil" id="buka-akun">Akun</button>' +
+            '<div class="menu-aksi">' +
+  '<button type="button" class="mbtn kecil buka-akun">Akun</button>' +
   '<button type="button" class="mbtn kecil ikon fs-btn" aria-label="Layar penuh" title="Layar penuh" hidden>' + ikon('i-expand') + '</button>' +
   ceklis +
 '</div>' +
@@ -1091,7 +1091,6 @@ async function simpanKeSupabase() {
 
 // Tampilkan kondisi akun
 function perbaruiTampilanAkun() {
-  const tombol = document.getElementById('buka-akun');
   const form = document.getElementById('form-akun');
   const logout = document.getElementById('logout-akun');
   const gantiMode = document.getElementById('ganti-mode-akun');
@@ -1099,14 +1098,12 @@ function perbaruiTampilanAkun() {
   const status = document.getElementById('status-akun');
 
   if (sesiAktif) {
-    tombol.textContent = 'Akun';
     judul.textContent = 'Akun saya';
     status.textContent = 'Login sebagai ' + sesiAktif.user.email;
     form.style.display = 'none';
     logout.style.display = 'block';
     gantiMode.style.display = 'none';
   } else {
-    tombol.textContent = 'Akun';
     judul.textContent = modeDaftar ? 'Daftar akun' : 'Masuk';
     status.textContent = modeDaftar
       ? 'Buat akun untuk menyimpan progresmu.'
@@ -1158,9 +1155,11 @@ async function aktifkanSesi(session) {
 }
 
 // Tombol buka dan tutup modal
-document.getElementById('buka-akun').addEventListener('click', () => {
-  perbaruiTampilanAkun();
-  document.getElementById('modal-akun').style.display = 'flex';
+document.querySelectorAll('.buka-akun').forEach(tombol => {
+  tombol.addEventListener('click', () => {
+    perbaruiTampilanAkun();
+    document.getElementById('modal-akun').style.display = 'flex';
+  });
 });
 
 document.getElementById('tutup-akun').addEventListener('click', () => {
@@ -1181,6 +1180,11 @@ document.getElementById('form-akun').addEventListener('submit', async e => {
   const password = document.getElementById('password-akun').value;
   const status = document.getElementById('status-akun');
   const tombol = document.getElementById('kirim-akun');
+
+  if (!supabaseClient) {
+    status.textContent = 'Layanan akun tidak tersedia. Periksa koneksi internet lalu muat ulang halaman.';
+    return;
+  }
 
   tombol.disabled = true;
   status.textContent = 'Sedang memproses...';
@@ -1216,6 +1220,7 @@ document.getElementById('form-akun').addEventListener('submit', async e => {
 
 // Logout
 document.getElementById('logout-akun').addEventListener('click', async () => {
+  if (!supabaseClient) return;
   const { error } = await supabaseClient.auth.signOut();
 
   if (error) {
@@ -1224,29 +1229,31 @@ document.getElementById('logout-akun').addEventListener('click', async () => {
   }
 });
 
-// Pantau perubahan status login
-supabaseClient.auth.onAuthStateChange((event, session) => {
-  if (event === 'SIGNED_IN' && session) {
-    setTimeout(() => aktifkanSesi(session), 0);
-  }
+// Pantau perubahan status login, hanya jika Supabase berhasil dimuat.
+if (supabaseClient) {
+  supabaseClient.auth.onAuthStateChange((event, session) => {
+    if (event === 'SIGNED_IN' && session) {
+      setTimeout(() => aktifkanSesi(session), 0);
+    }
 
-  if (event === 'SIGNED_OUT') {
-    sesiAktif = null;
-    nilai = { ...nilaiTamu };
-    perbaruiProgres();
-    perbaruiTampilanAkun();
-  }
-});
+    if (event === 'SIGNED_OUT') {
+      sesiAktif = null;
+      nilai = { ...nilaiTamu };
+      perbaruiProgres();
+      perbaruiTampilanAkun();
+    }
+  });
 
-// Periksa apakah pengguna sudah login sebelumnya
-supabaseClient.auth.getSession().then(({ data, error }) => {
-  if (error) {
-    console.error('Gagal memeriksa sesi:', error.message);
-    return;
-  }
+  // Periksa apakah pengguna sudah login sebelumnya.
+  supabaseClient.auth.getSession().then(({ data, error }) => {
+    if (error) {
+      console.error('Gagal memeriksa sesi:', error.message);
+      return;
+    }
 
-  if (data.session) aktifkanSesi(data.session);
-});
+    if (data.session) aktifkanSesi(data.session);
+  });
+}
 
   // Skor satu kelompok: sudah = total poin, maks = jumlah butir x 5
   function skorDari(pred) {
@@ -1386,8 +1393,24 @@ supabaseClient.auth.getSession().then(({ data, error }) => {
   document.getElementById('buka-reset').addEventListener('click', () => modal.classList.add('buka'));
   document.getElementById('batal-reset').addEventListener('click', () => modal.classList.remove('buka'));
   modal.addEventListener('click', e => { if (e.target === modal) modal.classList.remove('buka'); });
-  document.getElementById('konfirmasi-reset').addEventListener('click', () => {
+  document.getElementById('konfirmasi-reset').addEventListener('click', async () => {
+    // Hapus progres dari akun Supabase jika sedang login.
+    if (sesiAktif && supabaseClient) {
+      const { error } = await supabaseClient
+        .from('nilai_pengguna')
+        .delete()
+        .eq('user_id', sesiAktif.user.id);
+
+      if (error) {
+        console.error('Gagal menghapus progres akun:', error.message);
+        const status = document.getElementById('status-akun');
+        if (status) status.textContent = 'Gagal menghapus progres akun: ' + error.message;
+        return;
+      }
+    }
+
     nilai = {};
+    nilaiTamu = {};
     try { localStorage.removeItem(KUNCI_NILAI); } catch (e) {}
     perbaruiProgres();
     modal.classList.remove('buka');
