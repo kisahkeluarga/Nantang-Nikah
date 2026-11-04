@@ -902,7 +902,38 @@
 
 </div>
 
+
+  
+<!-- Popup Akun -->
+  
+<div id="modal-akun" style="display:none; position:fixed; inset:0; z-index:1000; background:#0009; align-items:center; justify-content:center; padding:20px;">
+  <div style="background:white; padding:28px; border-radius:18px; width:100%; max-width:380px; position:relative;">
+    <button id="tutup-akun" type="button" style="position:absolute;right:16px;top:12px;border:0;background:none;font-size:24px;cursor:pointer;">&times;</button>
+    <h2 id="judul-akun">Masuk</h2>
+    <p id="status-akun">Masuk untuk menyimpan progres ceklismu.</p>
+
+    <form id="form-akun">
+      <label for="email-akun">Email</label>
+      <input id="email-akun" type="email" required autocomplete="email" style="display:block;width:100%;padding:12px;margin:6px 0 14px;">
+
+      <label for="password-akun">Kata sandi</label>
+      <input id="password-akun" type="password" required minlength="6" autocomplete="current-password" style="display:block;width:100%;padding:12px;margin:6px 0 14px;">
+
+      <button id="kirim-akun" type="submit" style="width:100%;padding:12px;background:#FFE14D;border:0;border-radius:8px;font-weight:bold;cursor:pointer;">Masuk</button>
+    </form>
+
+    <p style="margin-top:16px;">
+      <button id="ganti-mode-akun" type="button" style="border:0;background:none;text-decoration:underline;cursor:pointer;">Belum punya akun? Daftar</button>
+    </p>
+    <button id="logout-akun" type="button" style="display:none;">Keluar</button>
+  </div>
+</div>
+
+
+
+  
 <!-- Popup konfirmasi reset -->
+  
 <div class="modal" id="modal-reset" role="dialog" aria-modal="true" aria-labelledby="judul-reset">
   <div class="kotak">
     <h2 id="judul-reset">Hapus semua perkembangan?</h2>
@@ -986,10 +1017,11 @@ console.log(
           '<div class="menu-isi">' +
             '<a class="menu-logo" href="#sampul" aria-label="Ke sampul"><img src="gbr/nn_logo.png" alt="Nantang Nikah"></a>' +
             '<nav class="menu-links" aria-label="Menu">' + menu + '</nav>' +
-            '<div class="menu-aksi">' +
-              '<button type="button" class="mbtn kecil ikon fs-btn" aria-label="Layar penuh" title="Layar penuh" hidden>' + ikon('i-expand') + '</button>' +
-              ceklis +
-            '</div>' +
+            ''<div class="menu-aksi">' +
+  '<button type="button" class="mbtn kecil" id="buka-akun">Akun</button>' +
+  '<button type="button" class="mbtn kecil ikon fs-btn" aria-label="Layar penuh" title="Layar penuh" hidden>' + ikon('i-expand') + '</button>' +
+  ceklis +
+'</div>' +
           '</div>');
       }
       // Footer media sosial di akhir tiap halaman
