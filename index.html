@@ -912,6 +912,13 @@
     <h2 id="judul-akun">Masuk</h2>
     <p id="status-akun">Masuk untuk menyimpan progres ceklismu.</p>
 
+    <div id="profil-akun" style="display:none; margin:18px 0;">
+      <label for="nama-profil">Nama tampilan</label>
+      <input id="nama-profil" type="text" maxlength="60" autocomplete="name" placeholder="Masukkan namamu" style="display:block;width:100%;padding:12px;margin:6px 0 10px;box-sizing:border-box;">
+      <button id="simpan-profil" type="button" style="width:100%;padding:11px;background:#FFE14D;border:0;border-radius:8px;font-weight:bold;cursor:pointer;">Simpan nama</button>
+      <p id="status-profil" aria-live="polite" style="font-size:13px;margin:8px 0 0;"></p>
+    </div>
+
     <form id="form-akun">
       <label for="email-akun">Email</label>
       <input id="email-akun" type="email" required autocomplete="email" style="display:block;width:100%;padding:12px;margin:6px 0 14px;">
@@ -1098,12 +1105,17 @@ function perbaruiTampilanAkun() {
   const status = document.getElementById('status-akun');
 
   if (sesiAktif) {
-    judul.textContent = 'Akun saya';
-    status.textContent = 'Login sebagai ' + sesiAktif.user.email;
+    judul.textContent = 'Profil saya';
+    const namaTersimpan = sesiAktif.user.user_metadata?.display_name || '';
+    status.textContent = 'Email: ' + sesiAktif.user.email;
+    document.getElementById('profil-akun').style.display = 'block';
+    document.getElementById('nama-profil').value = namaTersimpan;
+    document.getElementById('status-profil').textContent = '';
     form.style.display = 'none';
     logout.style.display = 'block';
     gantiMode.style.display = 'none';
   } else {
+    document.getElementById('profil-akun').style.display = 'none';
     judul.textContent = modeDaftar ? 'Daftar akun' : 'Masuk';
     status.textContent = modeDaftar
       ? 'Buat akun untuk menyimpan progresmu.'
@@ -1216,6 +1228,41 @@ document.getElementById('form-akun').addEventListener('submit', async e => {
   if (!modeDaftar) {
     status.textContent = 'Login berhasil. Memuat progres...';
   }
+});
+
+// Simpan nama tampilan ke metadata akun Supabase.
+document.getElementById('simpan-profil').addEventListener('click', async () => {
+  if (!sesiAktif || !supabaseClient) return;
+
+  const inputNama = document.getElementById('nama-profil');
+  const statusProfil = document.getElementById('status-profil');
+  const tombolSimpan = document.getElementById('simpan-profil');
+  const nama = inputNama.value.trim();
+
+  if (!nama) {
+    statusProfil.textContent = 'Nama tidak boleh kosong.';
+    inputNama.focus();
+    return;
+  }
+
+  tombolSimpan.disabled = true;
+  statusProfil.textContent = 'Menyimpan...';
+
+  const { data, error } = await supabaseClient.auth.updateUser({
+    data: { display_name: nama }
+  });
+
+  tombolSimpan.disabled = false;
+
+  if (error) {
+    statusProfil.textContent = 'Gagal menyimpan nama: ' + error.message;
+    return;
+  }
+
+  if (data?.user) sesiAktif = { ...sesiAktif, user: data.user };
+  statusProfil.textContent = 'Nama berhasil disimpan.';
+  perbaruiTampilanAkun();
+  document.getElementById('status-profil').textContent = 'Nama berhasil disimpan.';
 });
 
 // Logout
